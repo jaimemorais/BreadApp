@@ -16,5 +16,5 @@ It's overengineered on purpose, for me to do some proof of concepts.
 - .NET MAUI
 - Blazor
 - Azure
-- github actions
+- GitHub Actions
 - Terraform
