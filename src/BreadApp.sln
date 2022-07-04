@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApi", "api\BreadApi.csproj", "{2AF1CB25-A525-423D-BD68-EE3E5C8690BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{FE8E4848-826E-4FB1-AEB3-B786A85AE21D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Libs", "2.Libs", "{FE8E4848-826E-4FB1-AEB3-B786A85AE21D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Application", "lib\BreadApp.Application\BreadApp.Application.csproj", "{E3989B86-7DA6-4349-AE02-DB489F2DF387}"
 EndProject
@@ -23,6 +23,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainTests", "tests\DomainTests\DomainTests.csproj", "{63771181-C408-4832-A888-D8CEA9933F4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalTests", "tests\ArchitecturalTests\ArchitecturalTests.csproj", "{E62BBF1D-568C-46E1-82E4-C98E4EE70F56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Applications", "3.Applications", "{F8AAD861-F44E-4D4A-B884-A5CC19E24CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{2AF1CB25-A525-423D-BD68-EE3E5C8690BA} = {F8AAD861-F44E-4D4A-B884-A5CC19E24CAD}
 		{E3989B86-7DA6-4349-AE02-DB489F2DF387} = {FE8E4848-826E-4FB1-AEB3-B786A85AE21D}
 		{454D9BE9-2F34-4269-B80E-FD275AB28566} = {FE8E4848-826E-4FB1-AEB3-B786A85AE21D}
 		{8F3E067C-C13D-447E-8FD4-F515C90A8D31} = {FE8E4848-826E-4FB1-AEB3-B786A85AE21D}
