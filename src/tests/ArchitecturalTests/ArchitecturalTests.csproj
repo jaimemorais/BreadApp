@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lib\BreadApp.Domain\BreadApp.Domain.csproj" />
+    <ProjectReference Include="..\..\lib\BreadApp.Domain\BreadApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>
