@@ -18,4 +18,4 @@ Design
 
 - Backend : .NET 6 API 
 
-- Trying to follow DDD principles and patterns
+- DDD principles and patterns
