@@ -10,7 +10,7 @@ It's overengineered on purpose, for me to do some proof of concepts.
 - Azure
 - GitHub Actions
 - Terraform
-
+ 
 
 Design
 
