@@ -1,12 +1,11 @@
-﻿using System;
+﻿using BreadApp.Domain.Base;
+using System;
 using System.Collections.Generic;
 
-namespace BreadApp.Domain.Entity
+namespace BreadApp.Domain.Entities
 {
-    public class Bread
+    public class Bread : Entity
     {
-        public long Id { get; set; }
-
         public string Name { get; set; }
 
         public DateTime Date { get; set; }
@@ -17,6 +16,7 @@ namespace BreadApp.Domain.Entity
 
 
         // TODO Domain Events
+
 
     }
 }
