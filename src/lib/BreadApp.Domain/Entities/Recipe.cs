@@ -8,7 +8,7 @@ namespace BreadApp.Domain.Entities
     {
         public string Name { get; set; }
 
-        public List<RecipeIngredient> RecipeIngredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
 
 
         // TODO Domain Events

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace BreadApp.Domain.ValueObjects
 {
-    public class RecipeIngredient : ValueObject
+    public class Ingredient : ValueObject
     {
-        public RecipeIngredient(string ingredientName, Measure measure)
+        public Ingredient(string ingredientName, Measure measure)
         {
             IngredientName = ingredientName;
             Measure = measure;

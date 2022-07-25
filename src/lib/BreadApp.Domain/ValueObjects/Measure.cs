@@ -5,14 +5,14 @@ namespace BreadApp.Domain.ValueObjects
 {
     public class Measure : ValueObject
     {
-        public Measure(string unit, int quantity)
+        public Measure(Unit unit, int quantity)
         {
             Unit = unit;
             Quantity = quantity;
         }
 
 
-        public string Unit { get; private set; }
+        public Unit Unit { get; private set; }
 
         public int Quantity { get; private set; }
 

@@ -6,21 +6,21 @@ namespace DomainTests
     public class ValueObjectTests
     {
         [Fact]
-        public void Two_Different_ValueObjects_Should_Not_Be_Equal()
+        public void Two_Different_ValueObjects_Should_Not_Be_The_Same()
         {
-            Measure measure1 = new("g", 100);
-            Measure measure2 = new("g", 200);
+            Measure measure1 = new(Unit.Gram, 100);
+            Measure measure2 = new(Unit.Gram, 200);
 
             measure1.Should().NotBe(measure2);
         }
 
         [Fact]
-        public void Two_Equal_ValueObjects_Should_Be_Equal()
+        public void Two_Equal_ValueObjects_Should_Be_The_Same()
         {
-            RecipeIngredient recipeIngredient1 = new("butter", new Measure("g", 100));
-            RecipeIngredient recipeIngredient2 = new("butter", new Measure("g", 100));
+            Ingredient ingredient1 = new("butter", new Measure(Unit.Gram, 100));
+            Ingredient ingredient2 = new("butter", new Measure(Unit.Gram, 100));
 
-            recipeIngredient1.Should().Be(recipeIngredient2);
+            ingredient1.Should().Be(ingredient2);
         }
 
     }
