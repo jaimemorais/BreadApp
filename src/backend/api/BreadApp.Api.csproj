@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>ef265fd7-a697-44fd-803b-385d2d2e8b23</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
@@ -12,6 +11,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\lib\BreadApp.Application\BreadApp.Application.csproj" />
+    <ProjectReference Include="..\..\lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

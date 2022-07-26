@@ -1,21 +1,45 @@
-var builder = WebApplication.CreateBuilder(args);
+using BreadApp.Application;
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var builder = WebApplication.CreateBuilder(args);
+ConfigureServices(builder);
+ConfigureEndpoints(builder);
 
 var app = builder.Build();
+ConfigureApp(app);
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.MapGet("/list", () =>
-{
-    return Enumerable.Empty<string>();
-});
+var scope = app.Services.CreateScope();
+app.MapPost("/auth/register", (RegisterRequest registerRequest) => scope.ServiceProvider.GetRequiredService<RegisterEndpoint>().Execute(registerRequest));
+app.MapPost("/auth/login", (LoginRequest loginRequest) => scope.ServiceProvider.GetRequiredService<LoginEndpoint>().Execute(loginRequest));
 
 app.Run();
+
+
+
+
+static void ConfigureServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
+    builder.Services.AddBreadAppInfrastructureServices();
+    builder.Services.AddBreadAppApplicationServices();
+}
+
+
+static void ConfigureEndpoints(WebApplicationBuilder builder)
+{
+    builder.Services.AddScoped<RegisterEndpoint>();
+    builder.Services.AddScoped<LoginEndpoint>();
+}
+
+
+static void ConfigureApp(WebApplication app)
+{
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+}
