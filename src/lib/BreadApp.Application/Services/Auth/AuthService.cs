@@ -1,17 +1,33 @@
-﻿namespace BreadApp.Application.Services.Auth
+﻿using BreadApp.Infrastructure.JwtToken;
+using System;
+
+namespace BreadApp.Application.Services.Auth
 {
     public class AuthService : IAuthService
     {
-        public AuthResult Login(string email, string password)
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
+
+        public AuthService(IJwtTokenGenerator jwtTokenGenerator)
         {
-            // TODO
-            return new AuthResult("1", "2", "3", "4");
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
         public AuthResult Register(string name, string email, string password)
         {
-            // TODO
-            return new AuthResult("1", "2", "3", "4");
+            // TODO Check if user exists / create user
+
+
+            Guid userId = Guid.NewGuid();
+            string token = _jwtTokenGenerator.GenerateToken(userId, name);
+
+            return new AuthResult(userId, name, email, token);
         }
+
+        public AuthResult Login(string email, string password)
+        {
+            // TODO
+            return new AuthResult(new Guid(), "2", "3", "4");
+        }
+
     }
 }

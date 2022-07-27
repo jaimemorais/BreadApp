@@ -21,7 +21,7 @@ static void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
-    builder.Services.AddBreadAppInfrastructureServices();
+    builder.Services.AddBreadAppInfrastructureServices(builder.Configuration);
     builder.Services.AddBreadAppApplicationServices();
 }
 

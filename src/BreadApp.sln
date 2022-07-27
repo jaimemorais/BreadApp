@@ -27,6 +27,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api", "backend\api\BreadApp.Api.csproj", "{8A4A81A5-D792-479E-94D1-5DF7F4A9D720}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman", "Postman", "{11A5E280-B07B-4675-A1EB-E91590D0565E}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Postman\BreadApp.postman_collection.json = tests\Postman\BreadApp.postman_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
