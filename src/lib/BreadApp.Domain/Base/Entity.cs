@@ -5,7 +5,7 @@ namespace BreadApp.Domain.Base
 {
     public abstract class Entity
     {
-        protected Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
 
 
         private List<IDomainEvent> _domainEvents;

@@ -15,7 +15,7 @@ namespace BreadApp.Api.Endpoints.Auth
         {
             var authResult = _authService.Register(registerRequest.Name, registerRequest.Email, registerRequest.Password);
 
-            var response = new AuthResponse(authResult.Id, authResult.Name, authResult.Email, authResult.Token);
+            var response = new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token);
 
             return Results.Ok(response);
         }

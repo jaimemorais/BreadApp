@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BreadApp.Domain.Entities;
 
 namespace BreadApp.Application.Services.Auth
 {
-    public record AuthResult(Guid Id, string Name, string Email, string Token);
+    public record AuthResult(User User, string Token);
 
 
 }

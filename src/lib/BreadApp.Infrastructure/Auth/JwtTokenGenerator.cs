@@ -1,4 +1,5 @@
 ﻿using BreadApp.Application.Interfaces.Auth;
+using BreadApp.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -17,7 +18,7 @@ namespace BreadApp.Infrastructure.Auth
             _jwtSettings = jwtSettingsOptions.Value;
         }
 
-        public string GenerateToken(Guid userId, string userName)
+        public string GenerateToken(User user)
         {
             // TODO : Configure identity service
 
@@ -27,8 +28,8 @@ namespace BreadApp.Infrastructure.Auth
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-                new Claim(JwtRegisteredClaimNames.GivenName, userName),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.GivenName, user.Name),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

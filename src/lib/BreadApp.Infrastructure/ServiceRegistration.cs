@@ -1,5 +1,7 @@
 ﻿using BreadApp.Application.Interfaces.Auth;
+using BreadApp.Application.Interfaces.Persistence;
 using BreadApp.Infrastructure.Auth;
+using BreadApp.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +15,8 @@ namespace BreadApp.Application
 
 
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
 
             return services;
