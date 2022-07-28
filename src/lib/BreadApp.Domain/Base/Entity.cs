@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BreadApp.Domain.Base
 {
     public abstract class Entity
     {
-        public virtual long Id { get; protected set; }
+        protected Guid Id { get; set; } = Guid.NewGuid();
 
 
         private List<IDomainEvent> _domainEvents;

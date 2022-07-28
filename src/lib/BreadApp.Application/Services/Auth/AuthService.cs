@@ -1,4 +1,4 @@
-﻿using BreadApp.Infrastructure.JwtToken;
+﻿using BreadApp.Application.Interfaces.Auth;
 using System;
 
 namespace BreadApp.Application.Services.Auth
@@ -26,7 +26,7 @@ namespace BreadApp.Application.Services.Auth
         public AuthResult Login(string email, string password)
         {
             // TODO
-            return new AuthResult(new Guid(), "2", "3", "4");
+            return new AuthResult(Guid.NewGuid(), "2", "3", "4");
         }
 
     }

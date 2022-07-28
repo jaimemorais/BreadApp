@@ -1,4 +1,5 @@
-﻿using BreadApp.Infrastructure.JwtToken;
+﻿using BreadApp.Application.Interfaces.Auth;
+using BreadApp.Infrastructure.Auth;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

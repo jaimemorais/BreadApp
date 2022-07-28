@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BreadApp.Infrastructure.JwtToken
+namespace BreadApp.Application.Interfaces.Auth
 {
     public interface IJwtTokenGenerator
     {

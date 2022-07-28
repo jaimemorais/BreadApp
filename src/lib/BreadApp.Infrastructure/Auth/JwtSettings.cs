@@ -1,4 +1,4 @@
-﻿namespace BreadApp.Infrastructure.JwtToken
+﻿namespace BreadApp.Infrastructure.Auth
 {
     public class JwtSettings
     {

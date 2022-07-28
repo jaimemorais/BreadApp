@@ -1,11 +1,12 @@
-﻿using Microsoft.Extensions.Options;
+﻿using BreadApp.Application.Interfaces.Auth;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace BreadApp.Infrastructure.JwtToken
+namespace BreadApp.Infrastructure.Auth
 {
     public class JwtTokenGenerator : IJwtTokenGenerator
     {
@@ -19,6 +20,7 @@ namespace BreadApp.Infrastructure.JwtToken
         public string GenerateToken(Guid userId, string userName)
         {
             // TODO : Configure identity service
+
             var credentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
                 SecurityAlgorithms.HmacSha256);

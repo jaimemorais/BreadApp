@@ -4,7 +4,7 @@ A Bread baking journal.
 
 It's overengineered on purpose, for me to do some proof of concepts.
 
-- .NET 6
+- .NET 6 Minimal APIs
 - .NET MAUI
 - Blazor
 - Azure
@@ -18,4 +18,4 @@ Design
 
 - Backend : .NET 6 API 
 
-- DDD principles and patterns
+- DDD and Clean Architecture principles and patterns
