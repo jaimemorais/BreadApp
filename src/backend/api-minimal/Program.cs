@@ -10,6 +10,7 @@ ConfigureApp(app);
 var scope = app.Services.CreateScope();
 app.MapPost("/auth/register", (RegisterRequest registerRequest) => scope.ServiceProvider.GetRequiredService<RegisterEndpoint>().Execute(registerRequest));
 app.MapPost("/auth/login", (LoginRequest loginRequest) => scope.ServiceProvider.GetRequiredService<LoginEndpoint>().Execute(loginRequest));
+// TODO try FastEndpoints library
 
 app.Run();
 
