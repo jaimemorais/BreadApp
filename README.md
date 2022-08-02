@@ -2,9 +2,7 @@
 
 A Bread baking journal.
 
-It's overengineered on purpose, for me to do some proof of concepts.
-
-- .NET 6 Minimal APIs
+- .NET 6 API (full and minimal)
 - .NET MAUI
 - Blazor
 - Azure
@@ -14,8 +12,10 @@ It's overengineered on purpose, for me to do some proof of concepts.
 
 Design
 
-- Frontend : .NET Maui App, Blazor Web
+- Frontends : MAUI App, Blazor Web App
 
 - Backend : .NET 6 API 
 
-- DDD and Clean Architecture principles and patterns
+DDD and Clean Architecture principles and patterns
+
+Disclaimer : It's overengineered on purpose, for me to do some proof of concepts.
