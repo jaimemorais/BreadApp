@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BreadApp.Api.Controllers
 {
-    [ApiController]
     [Route("auth")]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseApiController
     {
 
         private readonly ILogger<AuthController> _logger;
@@ -23,9 +22,10 @@ namespace BreadApp.Api.Controllers
         {
             var authResult = _authService.Register(registerRequest.Name, registerRequest.Email, registerRequest.Password);
 
-            var response = new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token);
-
-            return Ok(response);
+            return authResult.Match(
+                        authResult => Ok(new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token)),
+                        errors => Problem(errors)
+                        );
         }
 
         [HttpPost("login")]
@@ -33,9 +33,17 @@ namespace BreadApp.Api.Controllers
         {
             var authResult = _authService.Login(registerRequest.Email, registerRequest.Password);
 
-            var response = new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token);
+            if (authResult.IsError)
+            {
+                return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
+            }
 
-            return Ok(response);
+            return authResult.Match(
+                        authResult => Ok(new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token)),
+                        errors => Problem(errors)
+                        );
         }
+
+
     }
 }

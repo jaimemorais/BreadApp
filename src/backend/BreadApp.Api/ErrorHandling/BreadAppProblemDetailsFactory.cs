@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ErrorOr;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
@@ -70,7 +71,6 @@ namespace BreadApp.Api.ErrorHandling
             }
 
             ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
-
             return problemDetails;
         }
 
@@ -90,7 +90,12 @@ namespace BreadApp.Api.ErrorHandling
                 problemDetails.Extensions["traceId"] = traceId;
             }
 
-            problemDetails.Extensions.Add("BreadAppCustomProblem", "test value");
+            var errors = httpContext?.Items["errors"] as List<Error>;
+
+            if (errors is not null)
+            {
+                problemDetails.Extensions.Add("errorCodes", errors.Select(e => e.Code));
+            }
 
         }
 

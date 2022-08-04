@@ -1,7 +1,8 @@
 ﻿using BreadApp.Application.Interfaces.Auth;
 using BreadApp.Application.Interfaces.Persistence;
 using BreadApp.Domain.Entities;
-using System;
+using BreadApp.Domain.Errors;
+using ErrorOr;
 
 namespace BreadApp.Application.Services.Auth
 {
@@ -17,11 +18,11 @@ namespace BreadApp.Application.Services.Auth
         }
 
 
-        public AuthResult Register(string name, string email, string password)
+        public ErrorOr<AuthResult> Register(string name, string email, string password)
         {
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new Exception($"User {email} already exists.");
+                return UserErrors.DuplicateEmail;
             }
 
             User newUser = new()
@@ -38,16 +39,16 @@ namespace BreadApp.Application.Services.Auth
             return new AuthResult(newUser, token);
         }
 
-        public AuthResult Login(string email, string password)
+        public ErrorOr<AuthResult> Login(string email, string password)
         {
             if (_userRepository.GetUserByEmail(email) is not User user)
             {
-                throw new Exception($"Login failed.");
+                return UserErrors.FailedLogin;
             }
 
             if (user.Password != password)
             {
-                throw new Exception("Login failed.");
+                return UserErrors.FailedLogin;
             }
 
             string token = _jwtTokenGenerator.GenerateToken(user);
