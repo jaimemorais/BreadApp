@@ -1,23 +1,33 @@
-﻿using BreadApp.Application.Services.Auth;
+﻿using BreadApp.Application.Authentication.Commands.Register;
+using MediatR;
 
 namespace BreadApp.Api.Endpoints.Auth
 {
     public class LoginEndpoint
     {
-        private readonly IAuthService _authService;
+        private readonly ISender _mediator;
 
-        public LoginEndpoint(IAuthService authService)
+        public LoginEndpoint(ISender mediator)
         {
-            _authService = authService;
+            _mediator = mediator;
         }
 
-        public IResult Execute(LoginRequest loginRequest)
+
+
+        public async Task<IResult> Execute(LoginRequest loginRequest)
         {
-            var authResult = _authService.Login(loginRequest.Email, loginRequest.Password);
+            var query = new LoginQuery(loginRequest.Email, loginRequest.Password);
+            var authResult = await _mediator.Send(query);
 
-            var response = new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token);
+            if (authResult.IsError)
+            {
+                return Results.Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
+            }
 
-            return Results.Ok(response);
+            return authResult.Match(
+                        authResult => Results.Ok(new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token)),
+                        errors => Results.Unauthorized()
+                        );
         }
 
 

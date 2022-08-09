@@ -1,6 +1,6 @@
 ﻿using BreadApp.Domain.Entities;
 
-namespace BreadApp.Application.Services.Auth
+namespace BreadApp.Application.Authentication
 {
     public record AuthResult(User User, string Token);
 

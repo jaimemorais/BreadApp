@@ -1,23 +1,28 @@
-﻿using BreadApp.Application.Services.Auth;
+﻿using BreadApp.Application.Authentication.Commands.Register;
+using MediatR;
 
 namespace BreadApp.Api.Endpoints.Auth
 {
     public class RegisterEndpoint
     {
-        private readonly IAuthService _authService;
+        private readonly ISender _mediator;
 
-        public RegisterEndpoint(IAuthService authService)
+        public RegisterEndpoint(ISender mediator)
         {
-            _authService = authService;
+            _mediator = mediator;
         }
 
-        public IResult Execute(RegisterRequest registerRequest)
+
+        public async Task<IResult> Execute(RegisterRequest registerRequest)
         {
-            var authResult = _authService.Register(registerRequest.Name, registerRequest.Email, registerRequest.Password);
+            var command = new RegisterCommand(registerRequest.Name, registerRequest.Email, registerRequest.Password);
 
-            var response = new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token);
+            var authResult = await _mediator.Send(command);
 
-            return Results.Ok(response);
+            return authResult.Match(
+                        authResult => Results.Ok(new AuthResponse(authResult.User.Id, authResult.User.Name, authResult.User.Email, authResult.Token)),
+                        errors => Results.BadRequest()
+                        );
         }
 
     }

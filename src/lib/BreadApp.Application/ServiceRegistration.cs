@@ -1,4 +1,4 @@
-﻿using BreadApp.Application.Services.Auth;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BreadApp.Application
@@ -7,7 +7,7 @@ namespace BreadApp.Application
     {
         public static IServiceCollection AddBreadAppApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IAuthService, AuthService>();
+            services.AddMediatR(typeof(BreadApp.Application.ServiceRegistration).Assembly);
 
             return services;
         }
