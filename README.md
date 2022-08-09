@@ -16,6 +16,6 @@ Design
 
 - Backend : .NET 6 API 
 
-DDD and Clean Architecture principles and patterns
+DDD and Clean Architecture principles and patterns (CQRS, Mediator)
 
 Disclaimer : It's overengineered on purpose, for me to do some proof of concepts.
