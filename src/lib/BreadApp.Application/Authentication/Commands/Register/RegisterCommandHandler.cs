@@ -39,6 +39,8 @@ namespace BreadApp.Application.Authentication.Commands.Register
 
             string token = _jwtTokenGenerator.GenerateToken(newUser);
 
+            await Task.CompletedTask;
+
             return new AuthResult(newUser, token);
 
         }

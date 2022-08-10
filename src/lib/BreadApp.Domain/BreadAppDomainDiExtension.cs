@@ -2,7 +2,7 @@
 
 namespace BreadApp.Application
 {
-    public static class ServiceRegistration
+    public static class BreadAppDomainDiExtension
     {
         public static IServiceCollection AddBreadAppDomainServices(this IServiceCollection services)
         {

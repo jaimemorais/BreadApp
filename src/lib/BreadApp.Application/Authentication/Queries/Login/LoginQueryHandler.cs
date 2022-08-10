@@ -7,7 +7,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BreadApp.Application.Authentication.Commands.Register
+namespace BreadApp.Application.Authentication.Queries.Login
 {
     public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>>
     {
@@ -35,8 +35,9 @@ namespace BreadApp.Application.Authentication.Commands.Register
 
             string token = _jwtTokenGenerator.GenerateToken(user);
 
-            return new AuthResult(user, token);
+            await Task.CompletedTask;
 
+            return new AuthResult(user, token);
         }
     }
 
