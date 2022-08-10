@@ -7,6 +7,10 @@ using System.Diagnostics;
 
 namespace BreadApp.Api.ErrorHandling
 {
+
+    /// <summary>
+    /// Custom ProblemDetailsFactory for the /error endpoint
+    /// </summary>
     public class BreadAppProblemDetailsFactory : ProblemDetailsFactory
     {
         private readonly ApiBehaviorOptions _options;

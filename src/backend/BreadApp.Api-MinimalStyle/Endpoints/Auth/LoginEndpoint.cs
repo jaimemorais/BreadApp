@@ -1,4 +1,4 @@
-﻿using BreadApp.Application.Authentication.Commands.Register;
+﻿using BreadApp.Application.Authentication.Queries.Login;
 using MediatR;
 
 namespace BreadApp.Api.Endpoints.Auth

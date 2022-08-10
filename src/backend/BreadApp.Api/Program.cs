@@ -1,4 +1,5 @@
 using BreadApp.Api.ErrorHandling;
+using BreadApp.Api.Mapping;
 using BreadApp.Application;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
@@ -19,14 +20,16 @@ app.Run();
 
 static void ConfigureDependencies(WebApplicationBuilder builder)
 {
+    // Services
     builder.Services.AddBreadAppInfrastructureServices(builder.Configuration);
     builder.Services.AddBreadAppApplicationServices();
 
-    // Custom ProblemDetails for the /error endpoint
+    // Api
     builder.Services.AddSingleton<ProblemDetailsFactory, BreadAppProblemDetailsFactory>();
-
     builder.Services.AddControllers();
+    builder.Services.AddBreadAppObjectMappings();
 
+    // Swagger
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 }
