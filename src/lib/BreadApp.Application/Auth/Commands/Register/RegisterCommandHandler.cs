@@ -7,7 +7,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BreadApp.Application.Authentication.Commands.Register
+namespace BreadApp.Application.Auth.Commands.Register
 {
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
     {

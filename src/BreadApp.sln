@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Libs", "2.Libs", "{FE8E4848-826E-4FB1-AEB3-B786A85AE21D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Core", "2.Core", "{FE8E4848-826E-4FB1-AEB3-B786A85AE21D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Application", "lib\BreadApp.Application\BreadApp.Application.csproj", "{E3989B86-7DA6-4349-AE02-DB489F2DF387}"
 EndProject

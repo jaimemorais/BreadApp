@@ -1,7 +1,7 @@
 using BreadApp.Api.Contracts.Auth;
-using BreadApp.Application.Authentication;
-using BreadApp.Application.Authentication.Commands.Register;
-using BreadApp.Application.Authentication.Queries.Login;
+using BreadApp.Application.Auth;
+using BreadApp.Application.Auth.Commands.Register;
+using BreadApp.Application.Auth.Queries.Login;
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
