@@ -1,7 +1,3 @@
-using BreadApp.Api.ErrorHandling;
-using BreadApp.Api.Mapping;
-using BreadApp.Application;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
