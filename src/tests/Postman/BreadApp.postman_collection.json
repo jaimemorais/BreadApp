@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Auth/Register",
+			"name": "auth/register",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {}
 			},
@@ -38,7 +38,7 @@
 			"response": []
 		},
 		{
-			"name": "Auth/Login",
+			"name": "auth/login",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {}
 			},
@@ -66,6 +66,38 @@
 						"login"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "bread/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"My First Bread\",\r\n  \"description\": \"This is my great first Bread!\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:7261/bread/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7261",
+					"path": [
+						"bread",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bread/get",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
