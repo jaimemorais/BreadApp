@@ -1,4 +1,4 @@
-﻿using BreadApp.Application.Interfaces.Auth;
+﻿using BreadApp.Application.Common.Interfaces.Auth;
 using BreadApp.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

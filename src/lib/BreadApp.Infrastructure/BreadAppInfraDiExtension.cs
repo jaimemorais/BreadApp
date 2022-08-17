@@ -1,5 +1,5 @@
-﻿using BreadApp.Application.Interfaces.Auth;
-using BreadApp.Application.Interfaces.Persistence;
+﻿using BreadApp.Application.Common.Interfaces.Auth;
+using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Infrastructure.Auth;
 using BreadApp.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;

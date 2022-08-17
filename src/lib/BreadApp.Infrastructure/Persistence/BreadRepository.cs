@@ -1,4 +1,4 @@
-﻿using BreadApp.Application.Interfaces.Persistence;
+﻿using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Domain.Entities;
 using System;
 using System.Collections.Generic;

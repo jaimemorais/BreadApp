@@ -1,6 +1,6 @@
 ﻿using BreadApp.Domain.Entities;
 
-namespace BreadApp.Application.Interfaces.Persistence
+namespace BreadApp.Application.Common.Interfaces.Persistence
 {
     public interface IUserRepository
     {

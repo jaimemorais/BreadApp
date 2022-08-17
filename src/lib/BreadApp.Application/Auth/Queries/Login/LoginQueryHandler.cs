@@ -1,5 +1,5 @@
-﻿using BreadApp.Application.Interfaces.Auth;
-using BreadApp.Application.Interfaces.Persistence;
+﻿using BreadApp.Application.Common.Interfaces.Auth;
+using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Domain.Entities;
 using BreadApp.Domain.Errors;
 using ErrorOr;

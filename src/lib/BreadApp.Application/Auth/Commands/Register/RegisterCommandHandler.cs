@@ -1,5 +1,5 @@
-﻿using BreadApp.Application.Interfaces.Auth;
-using BreadApp.Application.Interfaces.Persistence;
+﻿using BreadApp.Application.Common.Interfaces.Auth;
+using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Domain.Entities;
 using BreadApp.Domain.Errors;
 using ErrorOr;
@@ -22,7 +22,6 @@ namespace BreadApp.Application.Auth.Commands.Register
 
         public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
         {
-
             if (_userRepository.GetUserByEmail(registerCommand.Email) is not null)
             {
                 return UserErrors.DuplicateEmail;

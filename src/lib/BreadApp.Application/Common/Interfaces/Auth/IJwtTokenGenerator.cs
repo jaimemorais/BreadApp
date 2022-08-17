@@ -1,6 +1,6 @@
 ﻿using BreadApp.Domain.Entities;
 
-namespace BreadApp.Application.Interfaces.Auth
+namespace BreadApp.Application.Common.Interfaces.Auth
 {
     public interface IJwtTokenGenerator
     {
