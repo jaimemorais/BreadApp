@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\lib\BreadApp.Application\BreadApp.Application.csproj" />
     <ProjectReference Include="..\..\lib\BreadApp.Domain\BreadApp.Domain.csproj" />
+    <ProjectReference Include="..\..\lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

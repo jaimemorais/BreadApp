@@ -2,8 +2,13 @@
 
 namespace ArchitecturalTests
 {
-    internal static class ArchTestsUtils
+    internal static class ArchTestsCommon
     {
+        public const string Domain_Namespace = "BreadApp.Domain";
+        public const string Application_Namespace = "BreadApp.Application";
+        public const string Infrastructure_Namespace = "BreadApp.Infrastructure";
+
+
         public static string GetFailingTypes(TestResult result)
         {
             if (result.FailingTypes == null || result.FailingTypes.Count == 0)

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace BreadApp.Application
+namespace BreadApp.Domain
 {
     public static class BreadAppDomainDiExtension
     {
