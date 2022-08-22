@@ -1,7 +1,7 @@
-﻿using BreadApp.Application.Authentication.Queries.Login;
+﻿using BreadApp.Application.Auth.Queries.Login;
 using MediatR;
 
-namespace BreadApp.Api.Endpoints.Auth
+namespace BreadApp.Api_MinimalStyle.Endpoints.Auth
 {
     public class LoginEndpoint
     {

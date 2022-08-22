@@ -1,4 +1,3 @@
-using BreadApp.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureServices(builder);

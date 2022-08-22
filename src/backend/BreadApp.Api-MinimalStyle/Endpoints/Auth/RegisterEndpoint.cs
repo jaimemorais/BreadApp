@@ -1,7 +1,7 @@
-﻿using BreadApp.Application.Authentication.Commands.Register;
+﻿using BreadApp.Application.Auth.Commands.Register;
 using MediatR;
 
-namespace BreadApp.Api.Endpoints.Auth
+namespace BreadApp.Api_MinimalStyle.Endpoints.Auth
 {
     public class RegisterEndpoint
     {
@@ -15,7 +15,7 @@ namespace BreadApp.Api.Endpoints.Auth
 
         public async Task<IResult> Execute(RegisterRequest registerRequest)
         {
-            var command = new RegisterCommand(registerRequest.Name, registerRequest.Email, registerRequest.Password);
+            var command = new RegisterUserCommand(registerRequest.Name, registerRequest.Email, registerRequest.Password);
 
             var authResult = await _mediator.Send(command);
 
