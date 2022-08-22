@@ -22,7 +22,7 @@ namespace BreadApp.Application.Bread.Queries
 
             if (_breadRepository.GetBreadById(getBreadQuery.Id) is not BreadApp.Domain.Entities.Bread bread)
             {
-                return BreadErrors.BreadNotFound;
+                return BreadDomainErrors.BreadNotFound;
             }
 
 

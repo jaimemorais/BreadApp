@@ -1,7 +1,7 @@
 ﻿using BreadApp.Application.Auth.Queries.Login;
 using FluentValidation;
 
-namespace BreadApp.Application.Auth.Commands.Register
+namespace BreadApp.Application.Auth.Queries.Login
 {
     public class LoginQueryValidator : AbstractValidator<LoginQuery>
     {

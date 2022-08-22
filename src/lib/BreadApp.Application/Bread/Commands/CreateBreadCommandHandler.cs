@@ -18,10 +18,9 @@ namespace BreadApp.Application.Bread.Commands
 
         public async Task<ErrorOr<Domain.Entities.Bread>> Handle(CreateBreadCommand createBreadCommand, CancellationToken cancellationToken)
         {
-
             if (_breadRepository.GetBreadByName(createBreadCommand.Name) is not null)
             {
-                return BreadErrors.DuplicateName;
+                return BreadDomainErrors.DuplicateName;
             }
 
             Domain.Entities.Bread bread = new()

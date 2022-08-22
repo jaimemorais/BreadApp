@@ -9,7 +9,7 @@ namespace BreadApp.Application
     {
         public static IServiceCollection AddBreadAppApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(typeof(BreadAppApplicationDiExtension).Assembly);
+            services.AddMediatR(x => x.AsScoped(), typeof(BreadAppApplicationDiExtension).Assembly);
 
 
             // Register all AbstractValidator(s) in this assembly

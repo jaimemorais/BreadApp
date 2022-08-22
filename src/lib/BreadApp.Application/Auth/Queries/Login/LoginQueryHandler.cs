@@ -25,12 +25,12 @@ namespace BreadApp.Application.Auth.Queries.Login
 
             if (_userRepository.GetUserByEmail(loginQuery.Email) is not User user)
             {
-                return UserErrors.FailedLogin;
+                return UserDomainErrors.FailedLogin;
             }
 
             if (user.Password != loginQuery.Password)
             {
-                return UserErrors.FailedLogin;
+                return UserDomainErrors.FailedLogin;
             }
 
             string token = _jwtTokenGenerator.GenerateToken(user);
