@@ -14,7 +14,7 @@ namespace BreadApp.Api.Mapping
         public void Register(TypeAdapterConfig config)
         {
             // Auth
-            config.NewConfig<RegisterRequest, RegisterCommand>();
+            config.NewConfig<RegisterRequest, RegisterUserCommand>();
 
             config.NewConfig<LoginRequest, LoginQuery>();
 

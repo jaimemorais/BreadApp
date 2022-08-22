@@ -28,7 +28,7 @@ namespace BreadApp.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
-            var command = _mapster.Map<RegisterCommand>(registerRequest);
+            var command = _mapster.Map<RegisterUserCommand>(registerRequest);
 
             ErrorOr<AuthResult> authResult = await _mediator.Send(command);
 
