@@ -2,7 +2,7 @@
 
 namespace BreadApp.Domain.Errors
 {
-    public static class BreadErrors
+    public static class BreadDomainErrors
     {
         public static readonly Error DuplicateName = Error.Conflict(code: "Bread.DuplicateName", description: "Bread Name is already in use");
 
