@@ -2,9 +2,9 @@
 
 namespace BreadApp.Application.Auth.Commands.Register
 {
-    public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
+    public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
     {
-        public RegisterCommandValidator()
+        public RegisterUserCommandValidator()
         {
             RuleFor(c => c.Name).NotEmpty();
             RuleFor(c => c.Email).NotEmpty();

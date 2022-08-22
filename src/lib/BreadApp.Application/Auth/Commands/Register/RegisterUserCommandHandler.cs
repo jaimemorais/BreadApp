@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace BreadApp.Application.Auth.Commands.Register
 {
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
+    public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, ErrorOr<AuthResult>>
     {
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IUserRepository _userRepository;
 
-        public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+        public RegisterUserCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
         }
 
-        public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
+        public async Task<ErrorOr<AuthResult>> Handle(RegisterUserCommand registerCommand, CancellationToken cancellationToken)
         {
             if (_userRepository.GetUserByEmail(registerCommand.Email) is not null)
             {
-                return UserErrors.DuplicateEmail;
+                return UserDomainErrors.DuplicateEmail;
             }
 
             User newUser = new()
