@@ -70,34 +70,51 @@
 			"response": []
 		},
 		{
-			"name": "bread/create",
+			"name": "breadDone/add",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"My First Bread\",\r\n  \"description\": \"This is my great first Bread!\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}"
+					"raw": "{\r\n  \"date\" : \"2022-08-23T18:25:43.511Z\",\r\n  \"userId\": \"dab6bd44-09fd-4399-92cc-a65fdab186ab\",\r\n  \"recipeId\": \"a2405d17-22c3-4c0e-8aca-70ec46772f50\",\r\n  \"comments\": \"\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "https://localhost:7261/bread/create",
+					"raw": "https://localhost:7261/breadDone/add",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "7261",
 					"path": [
-						"bread",
-						"create"
+						"breadDone",
+						"add"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "bread/get",
+			"name": "breadDone/get",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7261/breadDone/02a87376-ae52-4e75-bc0e-beebc8cf3f07",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7261",
+					"path": [
+						"breadDone",
+						"02a87376-ae52-4e75-bc0e-beebc8cf3f07"
+					]
+				}
 			},
 			"response": []
 		}
