@@ -6,25 +6,20 @@ using System.Linq;
 
 namespace BreadApp.Infrastructure.Persistence
 {
-    public class BreadRepository : IBreadRepository
+    public class BreadDoneRepository : IBreadDoneRepository
     {
 
         // TODO temporalily in memory
-        private static readonly List<Bread> _breadList = new();
+        private static readonly List<BreadDone> _breadList = new();
 
-        public void Add(Bread bread)
+        public void Add(BreadDone bread)
         {
             _breadList.Add(bread);
         }
 
-        public Bread GetBreadById(Guid id)
+        public BreadDone GetBreadDoneById(Guid id)
         {
             return _breadList.SingleOrDefault(b => b.Id.Equals(id));
-        }
-
-        public Bread GetBreadByName(string name)
-        {
-            return _breadList.SingleOrDefault(b => b.Name.Equals(name));
         }
 
     }

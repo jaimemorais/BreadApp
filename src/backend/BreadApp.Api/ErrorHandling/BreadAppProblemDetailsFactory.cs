@@ -1,6 +1,5 @@
 ﻿using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
@@ -23,10 +22,10 @@ namespace BreadApp.Api.ErrorHandling
         public override ProblemDetails CreateProblemDetails(
             HttpContext httpContext,
             int? statusCode = null,
-            string? title = null,
-            string? type = null,
-            string? detail = null,
-            string? instance = null)
+            string title = null,
+            string type = null,
+            string detail = null,
+            string instance = null)
         {
             statusCode ??= 500;
 
@@ -48,10 +47,10 @@ namespace BreadApp.Api.ErrorHandling
             HttpContext httpContext,
             ModelStateDictionary modelStateDictionary,
             int? statusCode = null,
-            string? title = null,
-            string? type = null,
-            string? detail = null,
-            string? instance = null)
+            string title = null,
+            string type = null,
+            string detail = null,
+            string instance = null)
         {
             if (modelStateDictionary == null)
             {

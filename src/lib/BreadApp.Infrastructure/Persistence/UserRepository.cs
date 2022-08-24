@@ -1,5 +1,6 @@
 ﻿using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,6 +20,11 @@ namespace BreadApp.Infrastructure.Persistence
         public User GetUserByEmail(string email)
         {
             return _userList.SingleOrDefault(u => u.Email.Equals(email));
+        }
+
+        public User GetUserById(Guid id)
+        {
+            return _userList.SingleOrDefault(u => u.Id.Equals(id));
         }
     }
 }

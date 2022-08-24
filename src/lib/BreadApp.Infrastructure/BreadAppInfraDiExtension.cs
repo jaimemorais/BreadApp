@@ -17,7 +17,8 @@ namespace BreadApp.Application
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IBreadRepository, BreadRepository>();
+            services.AddScoped<IBreadDoneRepository, BreadDoneRepository>();
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
 
 
             return services;

@@ -3,8 +3,8 @@ using BreadApp.Api.Contracts.Bread;
 using BreadApp.Application.Auth;
 using BreadApp.Application.Auth.Commands.Register;
 using BreadApp.Application.Auth.Queries.Login;
-using BreadApp.Application.Bread.Commands;
-using BreadApp.Application.Bread.Queries;
+using BreadApp.Application.BreadDone.Commands;
+using BreadApp.Application.BreadDone.Queries;
 using Mapster;
 
 namespace BreadApp.Api.Mapping
@@ -23,10 +23,10 @@ namespace BreadApp.Api.Mapping
 
 
             // Bread
-            config.NewConfig<CreateBreadRequest, CreateBreadCommand>();
+            config.NewConfig<AddBreadDoneRequest, AddBreadDoneCommand>();
 
-            config.NewConfig<GetBreadRequest, GetBreadQuery>();
-            //.Map(dest => dest.Id, src => src.Id);
+            config.NewConfig<GetBreadDoneRequest, GetBreadDoneQuery>();
+
 
         }
     }
