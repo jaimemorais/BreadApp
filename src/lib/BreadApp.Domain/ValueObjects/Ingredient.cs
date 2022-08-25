@@ -5,7 +5,7 @@ namespace BreadApp.Domain.ValueObjects
 {
     public class Ingredient : ValueObject
     {
-        public Ingredient(string ingredientName, Measure measure)
+        public Ingredient(string ingredientName, string measure)
         {
             IngredientName = ingredientName;
             Measure = measure;
@@ -13,7 +13,7 @@ namespace BreadApp.Domain.ValueObjects
 
         public string IngredientName { get; private set; }
 
-        public Measure Measure { get; private set; }
+        public string Measure { get; private set; }
 
 
         protected override IEnumerable<object> GetEqualityComponents()

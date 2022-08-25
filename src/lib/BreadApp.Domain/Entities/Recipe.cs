@@ -1,5 +1,6 @@
 ﻿using BreadApp.Domain.Base;
 using BreadApp.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 
 namespace BreadApp.Domain.Entities
@@ -7,8 +8,11 @@ namespace BreadApp.Domain.Entities
     public class Recipe : Entity
     {
         public string Name { get; set; }
+        public User User { get; set; }
 
-        public string Description { get; set; }
+        public DateTime Date { get; set; }
+
+        public string Instructions { get; set; }
 
         public List<Ingredient> Ingredients { get; set; }
 

@@ -20,7 +20,13 @@ namespace BreadApp.Infrastructure.Persistence
 
         public Recipe GetRecipeById(Guid id)
         {
-            return _recipeList.SingleOrDefault(b => b.Id.Equals(id));
+            return _recipeList.SingleOrDefault(r => r.Id.Equals(id));
         }
+
+        public Recipe GetRecipeByName(string name)
+        {
+            return _recipeList.SingleOrDefault(r => r.Name.Equals(name));
+        }
+
     }
 }

@@ -10,17 +10,17 @@ namespace BreadApp.Application.BreadDone.Queries
     public class GetBreadDoneQueryHandler : IRequestHandler<GetBreadDoneQuery, ErrorOr<Domain.Entities.BreadDone>>
     {
 
-        private readonly IBreadDoneRepository _breadRepository;
+        private readonly IBreadDoneRepository _breadDoneRepository;
 
         public GetBreadDoneQueryHandler(IBreadDoneRepository breadRepository)
         {
-            _breadRepository = breadRepository;
+            _breadDoneRepository = breadRepository;
         }
 
         public async Task<ErrorOr<BreadApp.Domain.Entities.BreadDone>> Handle(GetBreadDoneQuery getBreadQuery, CancellationToken cancellationToken)
         {
 
-            if (_breadRepository.GetBreadDoneById(getBreadQuery.Id) is not BreadApp.Domain.Entities.BreadDone bread)
+            if (_breadDoneRepository.GetBreadDoneById(getBreadQuery.Id) is not BreadApp.Domain.Entities.BreadDone breadDone)
             {
                 return BreadDoneDomainErrors.NotFound;
             }
@@ -28,7 +28,7 @@ namespace BreadApp.Application.BreadDone.Queries
 
             await Task.CompletedTask;
 
-            return bread;
+            return breadDone;
         }
     }
 

@@ -4,9 +4,11 @@ namespace BreadApp.Application.Common.Interfaces.Persistence
 {
     public interface IRecipeRepository
     {
-        BreadApp.Domain.Entities.Recipe GetRecipeById(Guid id);
+        Domain.Entities.Recipe GetRecipeById(Guid id);
 
-        void Add(BreadApp.Domain.Entities.Recipe recipe);
+        Domain.Entities.Recipe GetRecipeByName(string name);
+
+        void Add(Domain.Entities.Recipe recipe);
 
     }
 }
