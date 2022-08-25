@@ -1,5 +1,5 @@
 ﻿using BreadApp.Api.Contracts.Auth;
-using BreadApp.Api.Contracts.Bread;
+using BreadApp.Api.Contracts.BreadDone;
 using BreadApp.Application.Auth;
 using BreadApp.Application.Auth.Commands.Register;
 using BreadApp.Application.Auth.Queries.Login;
@@ -23,7 +23,7 @@ namespace BreadApp.Api.Mapping
 
 
             // Bread
-            config.NewConfig<AddBreadDoneRequest, AddBreadDoneCommand>();
+            config.NewConfig<AddBreadDoneRequest, AddRecipeCommand>();
 
             config.NewConfig<GetBreadDoneRequest, GetBreadDoneQuery>();
 

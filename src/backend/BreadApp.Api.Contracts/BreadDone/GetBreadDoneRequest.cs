@@ -1,4 +1,4 @@
-﻿namespace BreadApp.Api.Contracts.Bread
+﻿namespace BreadApp.Api.Contracts.BreadDone
 {
     public record GetBreadDoneRequest(Guid Id);
 

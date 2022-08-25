@@ -1,4 +1,4 @@
-using BreadApp.Api.Contracts.Bread;
+using BreadApp.Api.Contracts.BreadDone;
 using BreadApp.Application.BreadDone.Commands;
 using BreadApp.Application.BreadDone.Queries;
 using ErrorOr;
@@ -28,7 +28,7 @@ namespace BreadApp.Api.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> Add(AddBreadDoneRequest addBreadDoneRequest)
         {
-            var command = _mapster.Map<AddBreadDoneCommand>(addBreadDoneRequest);
+            var command = _mapster.Map<AddRecipeCommand>(addBreadDoneRequest);
 
             ErrorOr<BreadApp.Domain.Entities.BreadDone> breadDone = await _mediator.Send(command);
 
