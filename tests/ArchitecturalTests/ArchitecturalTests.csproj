@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\BreadApp.Domain\BreadApp.Domain.csproj" />
+    <ProjectReference Include="..\..\src\lib\BreadApp.Application\BreadApp.Application.csproj" />
+    <ProjectReference Include="..\..\src\lib\BreadApp.Domain\BreadApp.Domain.csproj" />
+    <ProjectReference Include="..\..\src\lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

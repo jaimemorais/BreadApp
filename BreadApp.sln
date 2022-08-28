@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Core", "2.Core", "{FE8E4848-826E-4FB1-AEB3-B786A85AE21D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Application", "lib\BreadApp.Application\BreadApp.Application.csproj", "{E3989B86-7DA6-4349-AE02-DB489F2DF387}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Application", "src\lib\BreadApp.Application\BreadApp.Application.csproj", "{E3989B86-7DA6-4349-AE02-DB489F2DF387}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Domain", "lib\BreadApp.Domain\BreadApp.Domain.csproj", "{454D9BE9-2F34-4269-B80E-FD275AB28566}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Domain", "src\lib\BreadApp.Domain\BreadApp.Domain.csproj", "{454D9BE9-2F34-4269-B80E-FD275AB28566}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Infrastructure", "lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj", "{8F3E067C-C13D-447E-8FD4-F515C90A8D31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Infrastructure", "src\lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj", "{8F3E067C-C13D-447E-8FD4-F515C90A8D31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{317FAAD9-F8C6-4B7D-B1A8-803D8C6114C1}"
 	ProjectSection(SolutionItems) = preProject
@@ -33,11 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{B2D4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{E8186002-81A6-4183-A9C4-E9BDDCB5DAB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api", "backend\BreadApp.Api\BreadApp.Api.csproj", "{709D348A-9D12-4F04-848F-5E68F6ECBC70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api", "src\backend\BreadApp.Api\BreadApp.Api.csproj", "{709D348A-9D12-4F04-848F-5E68F6ECBC70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api.Contracts", "backend\BreadApp.Api.Contracts\BreadApp.Api.Contracts.csproj", "{D9CC7277-8826-4D4F-A20F-37E76687608F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api.Contracts", "src\backend\BreadApp.Api.Contracts\BreadApp.Api.Contracts.csproj", "{D9CC7277-8826-4D4F-A20F-37E76687608F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api-MinimalStyle", "backend\BreadApp.Api-MinimalStyle\BreadApp.Api-MinimalStyle.csproj", "{FB24540E-9A26-44C6-BCA3-8873D32B1D75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api-MinimalStyle", "src\backend\BreadApp.Api-MinimalStyle\BreadApp.Api-MinimalStyle.csproj", "{FB24540E-9A26-44C6-BCA3-8873D32B1D75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
