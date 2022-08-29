@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace BreadApp.Application.Recipe.Commands
 {
-    public class AddRecipeCommandHandler : IRequestHandler<AddRecipeCommand, ErrorOr<Domain.Entities.Recipe>>
+    public class PublishRecipeCommandHandler : IRequestHandler<PublishRecipeCommand, ErrorOr<Domain.Entities.Recipe>>
     {
         private readonly IRecipeRepository _recipeRepository;
         private readonly IUserRepository _userRepository;
 
-        public AddRecipeCommandHandler(IUserRepository userRepository, IRecipeRepository recipeRepository)
+        public PublishRecipeCommandHandler(IUserRepository userRepository, IRecipeRepository recipeRepository)
         {
             _userRepository = userRepository;
             _recipeRepository = recipeRepository;
         }
 
-        public async Task<ErrorOr<Domain.Entities.Recipe>> Handle(AddRecipeCommand addRecipeCommand, CancellationToken cancellationToken)
+        public async Task<ErrorOr<Domain.Entities.Recipe>> Handle(PublishRecipeCommand publishRecipeCommand, CancellationToken cancellationToken)
         {
-            var recipe = _recipeRepository.GetRecipeByName(addRecipeCommand.Name);
+            var recipe = _recipeRepository.GetRecipeByName(publishRecipeCommand.Name);
             if (recipe is not null)
             {
                 return RecipeDomainErrors.DuplicateName;
             }
 
-            var user = _userRepository.GetUserByEmail(addRecipeCommand.UserEmail);
+            var user = _userRepository.GetUserByEmail(publishRecipeCommand.UserEmail);
             if (user is null)
             {
                 return UserDomainErrors.UserNotFound;
@@ -35,11 +35,11 @@ namespace BreadApp.Application.Recipe.Commands
             Domain.Entities.Recipe Recipe = new()
             {
                 User = user,
-                Name = addRecipeCommand.Name,
-                Date = addRecipeCommand.Date,
-                Instructions = addRecipeCommand.Instructions,
-                Tags = addRecipeCommand.Tags,
-                Ingredients = addRecipeCommand.Ingredients
+                Name = publishRecipeCommand.Name,
+                Date = publishRecipeCommand.Date,
+                Instructions = publishRecipeCommand.Instructions,
+                Tags = publishRecipeCommand.Tags,
+                Ingredients = publishRecipeCommand.Ingredients
             };
 
             _recipeRepository.Add(Recipe);

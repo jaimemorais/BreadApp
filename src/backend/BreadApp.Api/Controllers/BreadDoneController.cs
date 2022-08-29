@@ -28,7 +28,7 @@ namespace BreadApp.Api.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> Add(AddBreadDoneRequest addBreadDoneRequest)
         {
-            var command = _mapster.Map<AddRecipeCommand>(addBreadDoneRequest);
+            var command = _mapster.Map<AddBreadDoneCommand>(addBreadDoneRequest);
 
             ErrorOr<BreadApp.Domain.Entities.BreadDone> breadDone = await _mediator.Send(command);
 

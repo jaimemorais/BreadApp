@@ -23,9 +23,9 @@ namespace BreadApp.Api.Controllers
 
 
         [HttpPost("publish")]
-        public async Task<IActionResult> Publish(AddRecipeRequest addRecipeRequest)
+        public async Task<IActionResult> Publish(PublishRecipeRequest publishRecipeRequest)
         {
-            var command = _mapster.Map<AddRecipeCommand>(addRecipeRequest);
+            var command = _mapster.Map<PublishRecipeCommand>(publishRecipeRequest);
 
             ErrorOr<Recipe> recipe = await _mediator.Send(command);
 

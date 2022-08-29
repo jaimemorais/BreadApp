@@ -2,7 +2,7 @@
 
 namespace BreadApp.Application.BreadDone.Commands
 {
-    public class AddBreadDoneCommandValidator : AbstractValidator<AddRecipeCommand>
+    public class AddBreadDoneCommandValidator : AbstractValidator<AddBreadDoneCommand>
     {
         public AddBreadDoneCommandValidator()
         {

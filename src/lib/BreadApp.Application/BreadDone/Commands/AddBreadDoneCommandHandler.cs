@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BreadApp.Application.BreadDone.Commands
 {
-    public class AddBreadDoneCommandHandler : IRequestHandler<AddRecipeCommand, ErrorOr<Domain.Entities.BreadDone>>
+    public class AddBreadDoneCommandHandler : IRequestHandler<AddBreadDoneCommand, ErrorOr<Domain.Entities.BreadDone>>
     {
         private readonly IBreadDoneRepository _breadDoneRepository;
         private readonly IUserRepository _userRepository;
@@ -20,7 +20,7 @@ namespace BreadApp.Application.BreadDone.Commands
             _recipeRepository = recipeRepository;
         }
 
-        public async Task<ErrorOr<Domain.Entities.BreadDone>> Handle(AddRecipeCommand addBreadDoneCommand, CancellationToken cancellationToken)
+        public async Task<ErrorOr<Domain.Entities.BreadDone>> Handle(AddBreadDoneCommand addBreadDoneCommand, CancellationToken cancellationToken)
         {
             var recipe = _recipeRepository.GetRecipeById(addBreadDoneCommand.RecipeId);
             if (recipe is null)

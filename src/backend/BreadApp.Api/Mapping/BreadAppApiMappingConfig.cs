@@ -1,10 +1,13 @@
 ﻿using BreadApp.Api.Contracts.Auth;
 using BreadApp.Api.Contracts.BreadDone;
+using BreadApp.Api.Contracts.Recipe;
 using BreadApp.Application.Auth;
 using BreadApp.Application.Auth.Commands.Register;
 using BreadApp.Application.Auth.Queries.Login;
 using BreadApp.Application.BreadDone.Commands;
 using BreadApp.Application.BreadDone.Queries;
+using BreadApp.Application.Recipe.Commands;
+using BreadApp.Application.Recipe.Queries;
 using Mapster;
 
 namespace BreadApp.Api.Mapping
@@ -22,10 +25,15 @@ namespace BreadApp.Api.Mapping
                 .Map(dest => dest, src => src.User);
 
 
-            // Bread
-            config.NewConfig<AddBreadDoneRequest, AddRecipeCommand>();
+            // Bread Done
+            config.NewConfig<AddBreadDoneRequest, AddBreadDoneCommand>();
 
             config.NewConfig<GetBreadDoneRequest, GetBreadDoneQuery>();
+
+            // Recipe
+            config.NewConfig<PublishRecipeRequest, PublishRecipeCommand>();
+
+            config.NewConfig<GetRecipeRequest, GetRecipeQuery>();
 
 
         }

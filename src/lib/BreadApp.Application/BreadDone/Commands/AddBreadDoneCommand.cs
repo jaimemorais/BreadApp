@@ -6,4 +6,4 @@ using System.Collections.Generic;
 namespace BreadApp.Application.BreadDone.Commands;
 
 
-public record AddRecipeCommand(DateTime Date, string UserEmail, Guid RecipeId, string Comments, List<string> Tags) : IRequest<ErrorOr<Domain.Entities.BreadDone>>;
+public record AddBreadDoneCommand(DateTime Date, string UserEmail, Guid RecipeId, string Comments, List<string> Tags) : IRequest<ErrorOr<Domain.Entities.BreadDone>>;
