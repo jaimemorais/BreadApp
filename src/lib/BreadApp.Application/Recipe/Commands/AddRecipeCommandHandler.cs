@@ -23,13 +23,13 @@ namespace BreadApp.Application.Recipe.Commands
             var recipe = _recipeRepository.GetRecipeByName(addRecipeCommand.Name);
             if (recipe is not null)
             {
-                return RecipeDomainErrors.NotFound;
+                return RecipeDomainErrors.DuplicateName;
             }
 
             var user = _userRepository.GetUserByEmail(addRecipeCommand.UserEmail);
             if (user is null)
             {
-                return BreadDoneDomainErrors.UserNotFound;
+                return UserDomainErrors.UserNotFound;
             }
 
             Domain.Entities.Recipe Recipe = new()

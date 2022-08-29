@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api.Contracts", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Api-MinimalStyle", "src\backend\BreadApp.Api-MinimalStyle\BreadApp.Api-MinimalStyle.csproj", "{FB24540E-9A26-44C6-BCA3-8873D32B1D75}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTests", "tests\ApplicationTests\ApplicationTests.csproj", "{7A2CF034-F894-40D7-80DB-E51E60958623}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{FB24540E-9A26-44C6-BCA3-8873D32B1D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB24540E-9A26-44C6-BCA3-8873D32B1D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB24540E-9A26-44C6-BCA3-8873D32B1D75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A2CF034-F894-40D7-80DB-E51E60958623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2CF034-F894-40D7-80DB-E51E60958623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2CF034-F894-40D7-80DB-E51E60958623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2CF034-F894-40D7-80DB-E51E60958623}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{709D348A-9D12-4F04-848F-5E68F6ECBC70} = {B2D422DB-5AFB-43DC-82E3-B134EC9EEB71}
 		{D9CC7277-8826-4D4F-A20F-37E76687608F} = {B2D422DB-5AFB-43DC-82E3-B134EC9EEB71}
 		{FB24540E-9A26-44C6-BCA3-8873D32B1D75} = {B2D422DB-5AFB-43DC-82E3-B134EC9EEB71}
+		{7A2CF034-F894-40D7-80DB-E51E60958623} = {BD171CBE-C465-4F57-B6B1-8636B6A78E35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE8E5A0D-A0CF-40FB-8655-1699F0105B6F}
