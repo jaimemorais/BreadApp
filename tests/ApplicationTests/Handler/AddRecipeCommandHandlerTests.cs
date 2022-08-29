@@ -8,14 +8,14 @@ using Moq.AutoMock;
 
 namespace ApplicationTests.Handler
 {
-    public class PublishRecipeCommandHandlerTests
+    public class AddRecipeCommandHandlerTests
     {
         [Fact]
-        public async Task PublishRecipeCommand_Should_Fail_If_User_Do_Not_Exist()
+        public async Task AddRecipeCommand_Should_Fail_If_User_Do_Not_Exist()
         {
             // Arrange
 
-            PublishRecipeCommand publishRecipeCommand = new(
+            AddRecipeCommand addRecipeCommand = new(
                 "jaimemorais@gmail.com",
                 "My Recipe",
                 DateTime.Now,
@@ -31,17 +31,17 @@ namespace ApplicationTests.Handler
 
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
-                .Setup(e => e.GetUserByEmail(publishRecipeCommand.UserEmail))
+                .Setup(e => e.GetUserByEmail(addRecipeCommand.UserEmail))
                 .Returns<User>(null);
 
             var recipeRepositoryMock = autoMocker.GetMock<IRecipeRepository>();
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert
 
-            var commandReturn = await commandHandler.Handle(publishRecipeCommand, new CancellationToken());
+            var commandReturn = await commandHandler.Handle(addRecipeCommand, new CancellationToken());
 
 
             // Act
@@ -54,13 +54,13 @@ namespace ApplicationTests.Handler
 
 
         [Fact]
-        public async Task PublishRecipeCommand_Should_Fail_If_Name_Is_Duplicate()
+        public async Task AddRecipeCommand_Should_Fail_If_Name_Is_Duplicate()
         {
             // Arrange
 
             const string MY_RECIPE_NAME = "My Recipe";
 
-            PublishRecipeCommand publishRecipeCommand = new(
+            AddRecipeCommand addRecipeCommand = new(
                 "jaimemorais@gmail.com",
                 MY_RECIPE_NAME,
                 DateTime.Now,
@@ -76,20 +76,20 @@ namespace ApplicationTests.Handler
 
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
-                .Setup(e => e.GetUserByEmail(publishRecipeCommand.UserEmail))
+                .Setup(e => e.GetUserByEmail(addRecipeCommand.UserEmail))
                 .Returns(new User() { Name = "My User" });
 
             var recipeRepositoryMock = autoMocker.GetMock<IRecipeRepository>();
             recipeRepositoryMock
-                .Setup(e => e.GetRecipeByName(publishRecipeCommand.Name))
+                .Setup(e => e.GetRecipeByName(addRecipeCommand.Name))
                 .Returns(new Recipe() { Name = MY_RECIPE_NAME });
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert
 
-            var commandReturn = await commandHandler.Handle(publishRecipeCommand, new CancellationToken());
+            var commandReturn = await commandHandler.Handle(addRecipeCommand, new CancellationToken());
 
 
             // Act
@@ -102,13 +102,13 @@ namespace ApplicationTests.Handler
 
 
         [Fact]
-        public async Task PublishRecipeCommand_Success()
+        public async Task AddRecipeCommand_Success()
         {
             // Arrange
 
             const string MY_RECIPE_NAME = "My Recipe";
 
-            PublishRecipeCommand publishRecipeCommand = new(
+            AddRecipeCommand addRecipeCommand = new(
                 "jaimemorais@gmail.com",
                 MY_RECIPE_NAME,
                 DateTime.Now,
@@ -124,17 +124,17 @@ namespace ApplicationTests.Handler
 
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
-                .Setup(e => e.GetUserByEmail(publishRecipeCommand.UserEmail))
+                .Setup(e => e.GetUserByEmail(addRecipeCommand.UserEmail))
                 .Returns(new User() { Name = "My User" });
 
             var recipeRepositoryMock = autoMocker.GetMock<IRecipeRepository>();
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert
 
-            var commandReturn = await commandHandler.Handle(publishRecipeCommand, new CancellationToken());
+            var commandReturn = await commandHandler.Handle(addRecipeCommand, new CancellationToken());
 
 
             // Act

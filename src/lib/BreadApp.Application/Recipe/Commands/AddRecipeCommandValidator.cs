@@ -2,9 +2,9 @@
 
 namespace BreadApp.Application.Recipe.Commands
 {
-    public class PublishRecipeCommandValidator : AbstractValidator<PublishRecipeCommand>
+    public class AddRecipeCommandValidator : AbstractValidator<AddRecipeCommand>
     {
-        public PublishRecipeCommandValidator()
+        public AddRecipeCommandValidator()
         {
             RuleFor(c => c.UserEmail).NotEmpty();
             RuleFor(c => c.Name).NotEmpty();

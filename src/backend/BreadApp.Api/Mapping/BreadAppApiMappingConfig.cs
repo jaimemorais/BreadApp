@@ -31,7 +31,7 @@ namespace BreadApp.Api.Mapping
             config.NewConfig<GetBreadDoneRequest, GetBreadDoneQuery>();
 
             // Recipe
-            config.NewConfig<PublishRecipeRequest, PublishRecipeCommand>();
+            config.NewConfig<AddRecipeRequest, AddRecipeCommand>();
 
             config.NewConfig<GetRecipeRequest, GetRecipeQuery>();
 

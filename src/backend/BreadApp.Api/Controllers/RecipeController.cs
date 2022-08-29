@@ -22,10 +22,11 @@ namespace BreadApp.Api.Controllers
         }
 
 
-        [HttpPost("publish")]
-        public async Task<IActionResult> Publish(PublishRecipeRequest publishRecipeRequest)
+
+        [HttpPost("add")]
+        public async Task<IActionResult> Add(AddRecipeRequest addRecipeRequest)
         {
-            var command = _mapster.Map<PublishRecipeCommand>(publishRecipeRequest);
+            var command = _mapster.Map<AddRecipeCommand>(addRecipeRequest);
 
             ErrorOr<Recipe> recipe = await _mediator.Send(command);
 
@@ -34,6 +35,23 @@ namespace BreadApp.Api.Controllers
                 errors => Problem(errors)
             );
         }
+
+        // TODO
+
+        //[HttpPost("publish")]
+        //public async Task<IActionResult> Publish(PublishRecipeRequest publishRecipeRequest)
+        //{
+        //    //var command = _mapster.Map<PublishRecipeCommand>(publishRecipeRequest);
+
+        //    //ErrorOr<Recipe> recipe = await _mediator.Send(command);
+
+        //    //return recipe.Match(
+        //    //    recipe => CreatedAtAction(actionName: nameof(Get), routeValues: new { id = recipe.Id }, value: _mapster.Map<RecipeResponse>(recipe)),
+        //    //    errors => Problem(errors)
+        //    //);
+
+        //    return null;
+        //}
 
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)

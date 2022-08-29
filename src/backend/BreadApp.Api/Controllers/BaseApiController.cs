@@ -15,7 +15,7 @@ namespace BreadApp.Api.Controllers
                 return Problem();
             }
 
-            if (errors.All(error => error.Type == ErrorType.Validation))
+            if (errors.All(error => error.Type == ErrorType.Validation || error.Type == ErrorType.NotFound))
             {
                 var modelStateDict = new ModelStateDictionary();
                 errors.ForEach(e => { modelStateDict.AddModelError(e.Code, e.Description); });

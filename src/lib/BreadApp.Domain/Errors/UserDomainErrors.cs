@@ -8,6 +8,6 @@ namespace BreadApp.Domain.Errors
 
         public static readonly Error FailedLogin = Error.Failure(code: "User.Login", description: "Login failed");
 
-        public static readonly Error UserNotFound = Error.Failure(code: "User.NotFound", description: "User not found");
+        public static readonly Error UserNotFound = Error.NotFound(code: "User.NotFound", description: "User not found");
     }
 }
