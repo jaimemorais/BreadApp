@@ -7,7 +7,8 @@ namespace BreadApp.Domain.Errors
 
         public static readonly Error DuplicateName = Error.Validation(code: "Recipe.Duplicated", description: "Recipe name already exists");
 
-        public static readonly Error NotFound = Error.NotFound(code: "Recipe.RecipeNotFound", description: "Recipe not found with the Id.");
+        public static readonly Error RecipeNotFound = Error.NotFound(code: "Recipe.RecipeNotFound", description: "Recipe not found with the Id.");
+
 
     }
 }

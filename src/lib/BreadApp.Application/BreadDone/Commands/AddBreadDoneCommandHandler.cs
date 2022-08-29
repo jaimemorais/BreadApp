@@ -25,13 +25,13 @@ namespace BreadApp.Application.BreadDone.Commands
             var recipe = _recipeRepository.GetRecipeById(addBreadDoneCommand.RecipeId);
             if (recipe is null)
             {
-                return BreadDoneDomainErrors.RecipeNotFound;
+                return RecipeDomainErrors.RecipeNotFound;
             }
 
             var user = _userRepository.GetUserByEmail(addBreadDoneCommand.UserEmail);
             if (user is null)
             {
-                return BreadDoneDomainErrors.UserNotFound;
+                return UserDomainErrors.UserNotFound;
             }
 
 
