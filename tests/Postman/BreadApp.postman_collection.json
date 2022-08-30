@@ -104,7 +104,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7261/recipe/02a87376-ae52-4e75-bc0e-beebc8cf3f07",
+					"raw": "https://localhost:7261/recipe/2ae67d44-bf44-402b-b5dd-28b504ab32bd",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -112,7 +112,36 @@
 					"port": "7261",
 					"path": [
 						"recipe",
-						"02a87376-ae52-4e75-bc0e-beebc8cf3f07"
+						"2ae67d44-bf44-402b-b5dd-28b504ab32bd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recipe/publish",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userEmail\" : \"jaimemorais@gmail.com\",\r\n  \"recipeId\": \"b3fc9957-70ac-4ff6-8bb0-907913433383\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7261/recipe/publish",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7261",
+					"path": [
+						"recipe",
+						"publish"
 					]
 				}
 			},
@@ -125,7 +154,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"date\" : \"2022-08-23T18:25:43.511Z\",\r\n  \"userEmail\": \"jaimemorais@gmail.com\",\r\n  \"recipeId\": \"a2405d17-22c3-4c0e-8aca-70ec46772f50\",\r\n  \"comments\": \"\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"date\" : \"2022-08-23T18:25:43.511Z\",\r\n  \"userEmail\": \"jaimemorais@gmail.com\",\r\n  \"recipeId\": \"9db29bed-0bf7-4e3b-bd73-81596a0cceee\",\r\n  \"comments\": \"\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +182,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7261/breadDone/02a87376-ae52-4e75-bc0e-beebc8cf3f07",
+					"raw": "https://localhost:7261/breadDone/9db29bed-0bf7-4e3b-bd73-81596a0cceee",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -161,7 +190,7 @@
 					"port": "7261",
 					"path": [
 						"breadDone",
-						"02a87376-ae52-4e75-bc0e-beebc8cf3f07"
+						"9db29bed-0bf7-4e3b-bd73-81596a0cceee"
 					]
 				}
 			},
