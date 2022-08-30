@@ -7,7 +7,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BreadApp.Application.Auth.Queries.Login
+namespace BreadApp.Application.Auth.Queries
 {
     public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>>
     {

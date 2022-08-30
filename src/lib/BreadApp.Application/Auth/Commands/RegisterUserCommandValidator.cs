@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace BreadApp.Application.Auth.Commands.Register
+namespace BreadApp.Application.Auth.Commands
 {
     public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
     {
