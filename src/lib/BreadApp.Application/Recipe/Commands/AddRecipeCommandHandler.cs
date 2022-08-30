@@ -39,7 +39,8 @@ namespace BreadApp.Application.Recipe.Commands
                 Date = addRecipeCommand.Date,
                 Instructions = addRecipeCommand.Instructions,
                 Tags = addRecipeCommand.Tags,
-                Ingredients = addRecipeCommand.Ingredients
+                Ingredients = addRecipeCommand.Ingredients,
+                IsPublished = false
             };
 
             _recipeRepository.Add(Recipe);

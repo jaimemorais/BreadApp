@@ -6,9 +6,9 @@ namespace BreadApp.Application.Recipe.Commands
     {
         public AddRecipeCommandValidator()
         {
-            RuleFor(c => c.UserEmail).NotEmpty();
-            RuleFor(c => c.Name).NotEmpty();
-            RuleFor(c => c.Date).NotEmpty();
+            RuleFor(r => r.UserEmail).NotEmpty();
+            RuleFor(r => r.Name).NotEmpty();
+            RuleFor(r => r.Date).NotEmpty();
         }
     }
 }

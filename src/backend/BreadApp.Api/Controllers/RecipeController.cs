@@ -36,22 +36,19 @@ namespace BreadApp.Api.Controllers
             );
         }
 
-        // TODO
 
-        //[HttpPost("publish")]
-        //public async Task<IActionResult> Publish(PublishRecipeRequest publishRecipeRequest)
-        //{
-        //    //var command = _mapster.Map<PublishRecipeCommand>(publishRecipeRequest);
+        [HttpPatch("publish")]
+        public async Task<IActionResult> Publish(PublishRecipeRequest publishRecipeRequest)
+        {
+            var command = _mapster.Map<PublishRecipeCommand>(publishRecipeRequest);
 
-        //    //ErrorOr<Recipe> recipe = await _mediator.Send(command);
+            ErrorOr<Recipe> recipe = await _mediator.Send(command);
 
-        //    //return recipe.Match(
-        //    //    recipe => CreatedAtAction(actionName: nameof(Get), routeValues: new { id = recipe.Id }, value: _mapster.Map<RecipeResponse>(recipe)),
-        //    //    errors => Problem(errors)
-        //    //);
-
-        //    return null;
-        //}
+            return recipe.Match(
+                recipe => AcceptedAtAction(actionName: nameof(Get), routeValues: new { id = recipe.Id }, value: _mapster.Map<RecipeResponse>(recipe)),
+                errors => Problem(errors)
+            );
+        }
 
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> Get([FromRoute] Guid id)

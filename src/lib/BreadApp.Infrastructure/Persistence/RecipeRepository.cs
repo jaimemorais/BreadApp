@@ -17,6 +17,12 @@ namespace BreadApp.Infrastructure.Persistence
         {
             _recipeList.Add(recipe);
         }
+        public void Publish(Guid recipeId)
+        {
+            var recipeToUpdate = _recipeList.SingleOrDefault(r => r.Id.Equals(recipeId));
+            recipeToUpdate.IsPublished = true;
+        }
+
 
         public Recipe GetRecipeById(Guid id)
         {

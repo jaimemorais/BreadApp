@@ -10,5 +10,7 @@ namespace BreadApp.Application.Common.Interfaces.Persistence
 
         void Add(Domain.Entities.Recipe recipe);
 
+        void Publish(Guid recipeId);
+
     }
 }

@@ -2,12 +2,13 @@
 using BreadApp.Api.Contracts.BreadDone;
 using BreadApp.Api.Contracts.Recipe;
 using BreadApp.Application.Auth;
-using BreadApp.Application.Auth.Commands.Register;
-using BreadApp.Application.Auth.Queries.Login;
+using BreadApp.Application.Auth.Commands;
+using BreadApp.Application.Auth.Queries;
 using BreadApp.Application.BreadDone.Commands;
 using BreadApp.Application.BreadDone.Queries;
 using BreadApp.Application.Recipe.Commands;
 using BreadApp.Application.Recipe.Queries;
+using BreadApp.Domain.Entities;
 using Mapster;
 
 namespace BreadApp.Api.Mapping
@@ -18,22 +19,24 @@ namespace BreadApp.Api.Mapping
         {
             // Auth
             config.NewConfig<RegisterRequest, RegisterUserCommand>();
-
             config.NewConfig<LoginRequest, LoginQuery>();
-
             config.NewConfig<AuthResult, AuthResponse>()
                 .Map(dest => dest, src => src.User);
 
 
             // Bread Done
             config.NewConfig<AddBreadDoneRequest, AddBreadDoneCommand>();
-
             config.NewConfig<GetBreadDoneRequest, GetBreadDoneQuery>();
+            config.NewConfig<BreadDone, BreadDoneResponse>()
+                .Map(dest => dest.RecipeId, src => src.Recipe.Id)
+                .Map(dest => dest.RecipeName, src => src.Recipe.Name);
+
+
 
             // Recipe
             config.NewConfig<AddRecipeRequest, AddRecipeCommand>();
-
             config.NewConfig<GetRecipeRequest, GetRecipeQuery>();
+            config.NewConfig<PublishRecipeRequest, PublishRecipeCommand>();
 
 
         }

@@ -76,7 +76,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"My new Bread\",\r\n  \"date\": \"2022-08-25T10:58:09.727Z\",\r\n  \"instructions\": \"add flour, milk and butter and thats it\",\r\n  \"ingredients\": [\r\n     {\"ingredientName\" : \"flour\", \"measure\" : \"400g\"},     \r\n     {\"ingredientName\" : \"milk\", \"measure\" : \"100ml\"},     \r\n     {\"ingredientName\" : \"butter\", \"measure\" : \"200g\"}\r\n  ],\r\n  \"tags\": [\r\n    \"super\", \"excellent\"\r\n  ]\r\n}\r\n",
+					"raw": "{\r\n  \"userEmail\" : \"jaimemorais@gmail.com\",\r\n  \"name\": \"My new Bread\",\r\n  \"date\": \"2022-08-25T10:58:09.727Z\",\r\n  \"instructions\": \"add flour, milk and butter and thats it\",\r\n  \"ingredients\": [\r\n     {\"ingredientName\" : \"flour\", \"measure\" : \"400g\"},     \r\n     {\"ingredientName\" : \"milk\", \"measure\" : \"100ml\"},     \r\n     {\"ingredientName\" : \"butter\", \"measure\" : \"200g\"}\r\n  ],\r\n  \"tags\": [\r\n    \"super\", \"excellent\"\r\n  ]\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7261/recipe/publish",
+					"raw": "https://localhost:7261/recipe/add",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -92,7 +92,7 @@
 					"port": "7261",
 					"path": [
 						"recipe",
-						"publish"
+						"add"
 					]
 				}
 			},
@@ -125,7 +125,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"date\" : \"2022-08-23T18:25:43.511Z\",\r\n  \"userEmail\": \"jaimemorais@gmail.com\",\r\n  \"recipe\": \"a2405d17-22c3-4c0e-8aca-70ec46772f50\",\r\n  \"comments\": \"\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}",
+					"raw": "{\r\n  \"date\" : \"2022-08-23T18:25:43.511Z\",\r\n  \"userEmail\": \"jaimemorais@gmail.com\",\r\n  \"recipeId\": \"a2405d17-22c3-4c0e-8aca-70ec46772f50\",\r\n  \"comments\": \"\",\r\n  \"tags\": [\r\n    \"Crunchy\", \"Flour\"\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
