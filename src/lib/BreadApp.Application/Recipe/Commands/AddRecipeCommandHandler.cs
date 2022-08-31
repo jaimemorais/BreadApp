@@ -32,7 +32,7 @@ namespace BreadApp.Application.Recipe.Commands
                 return UserDomainErrors.UserNotFound;
             }
 
-            Domain.Entities.Recipe Recipe = new()
+            recipe = new()
             {
                 User = user,
                 Name = addRecipeCommand.Name,
@@ -43,11 +43,11 @@ namespace BreadApp.Application.Recipe.Commands
                 IsPublished = false
             };
 
-            _recipeRepository.Add(Recipe);
+            _recipeRepository.Add(recipe);
 
             await Task.CompletedTask;
 
-            return Recipe;
+            return recipe;
 
         }
     }
