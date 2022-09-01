@@ -4,12 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BreadApp.Infrastructure.Persistence
+namespace BreadApp.Infrastructure.Persistence.InMemory
 {
-    public class RecipeRepository : IRecipeRepository
+    public class RecipeInMemoryRepository : IRecipeRepository
     {
-
-        // TODO temporalily in memory
         private static readonly List<Recipe> _recipeList = new();
 
 

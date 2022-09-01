@@ -4,17 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BreadApp.Infrastructure.Persistence
+namespace BreadApp.Infrastructure.Persistence.InMemory
 {
-    public class BreadDoneRepository : IBreadDoneRepository
+    public class BreadDoneInMemoryRepository : IBreadDoneRepository
     {
 
-        // TODO temporalily in memory
         private static readonly List<BreadDone> _breadList = new();
 
-        public void Add(BreadDone bread)
+        public void Add(BreadDone breadDone)
         {
-            _breadList.Add(bread);
+            _breadList.Add(breadDone);
         }
 
         public BreadDone GetBreadDoneById(Guid id)

@@ -8,6 +8,7 @@ namespace BreadApp.Domain.Entities
     public class Recipe : Entity
     {
         public string Name { get; set; }
+
         public User User { get; set; }
 
         public DateTime Date { get; set; }

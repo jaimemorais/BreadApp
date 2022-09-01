@@ -4,12 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BreadApp.Infrastructure.Persistence
+namespace BreadApp.Infrastructure.Persistence.InMemory
 {
-    public class UserRepository : IUserRepository
+    public class UserInMemoryRepository : IUserRepository
     {
 
-        // TODO temporalily in memory
         private static readonly List<User> _userList = new();
 
         public void Add(User user)

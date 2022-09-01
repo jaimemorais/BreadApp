@@ -1,7 +1,7 @@
 ﻿using BreadApp.Application.Common.Interfaces.Auth;
 using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Infrastructure.Auth;
-using BreadApp.Infrastructure.Persistence;
+using BreadApp.Infrastructure.Persistence.InMemory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,9 +16,9 @@ namespace BreadApp.Application
 
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IBreadDoneRepository, BreadDoneRepository>();
-            services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IUserRepository, UserInMemoryRepository>();
+            services.AddScoped<IBreadDoneRepository, BreadDoneInMemoryRepository>();
+            services.AddScoped<IRecipeRepository, RecipeInMemoryRepository>();
 
 
             return services;
