@@ -34,9 +34,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetUserByEmail(addRecipeCommand.UserEmail))
                 .Returns<User>(null);
 
-            var recipeRepositoryMock = autoMocker.GetMock<IRecipeRepository>();
 
-            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = autoMocker.CreateInstance<AddRecipeCommandHandler>();
 
 
             // Assert
@@ -84,7 +83,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeByName(addRecipeCommand.Name))
                 .Returns(new Recipe() { Name = MY_RECIPE_NAME });
 
-            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+
+            var commandHandler = autoMocker.CreateInstance<AddRecipeCommandHandler>();
 
 
             // Assert
@@ -127,9 +127,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetUserByEmail(addRecipeCommand.UserEmail))
                 .Returns(new User() { Name = "My User" });
 
-            var recipeRepositoryMock = autoMocker.GetMock<IRecipeRepository>();
 
-            var commandHandler = new AddRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = autoMocker.CreateInstance<AddRecipeCommandHandler>();
 
 
             // Assert

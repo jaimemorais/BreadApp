@@ -30,8 +30,6 @@ namespace ApplicationTests.Handler
 
             var autoMocker = new AutoMocker();
 
-            var breadDoneRepositoryMock = autoMocker.GetMock<IBreadDoneRepository>();
-
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
                 .Setup(e => e.GetUserByEmail(addBreadDoneCommand.UserEmail))
@@ -42,8 +40,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeById(recipeMock.Id))
                 .Returns(recipeMock);
 
+            var commandHandler = autoMocker.CreateInstance<AddBreadDoneCommandHandler>();
 
-            var commandHandler = new AddBreadDoneCommandHandler(breadDoneRepositoryMock.Object, userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert
@@ -66,7 +64,6 @@ namespace ApplicationTests.Handler
         {
             // Arrange
 
-
             AddBreadDoneCommand addBreadDoneCommand = new(
                 DateTime.Now,
                 "jaimemorais@gmail.com",
@@ -76,8 +73,6 @@ namespace ApplicationTests.Handler
 
 
             var autoMocker = new AutoMocker();
-
-            var breadDoneRepositoryMock = autoMocker.GetMock<IBreadDoneRepository>();
 
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
@@ -89,8 +84,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeById(addBreadDoneCommand.RecipeId))
                 .Returns<Recipe>(null);
 
+            var commandHandler = autoMocker.CreateInstance<AddBreadDoneCommandHandler>();
 
-            var commandHandler = new AddBreadDoneCommandHandler(breadDoneRepositoryMock.Object, userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert
@@ -133,8 +128,6 @@ namespace ApplicationTests.Handler
 
             var autoMocker = new AutoMocker();
 
-            var breadDoneRepositoryMock = autoMocker.GetMock<IBreadDoneRepository>();
-
             var userRepositoryMock = autoMocker.GetMock<IUserRepository>();
             userRepositoryMock
                 .Setup(e => e.GetUserByEmail(addBreadDoneCommand.UserEmail))
@@ -145,8 +138,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeById(addBreadDoneCommand.RecipeId))
                 .Returns(recipeMock);
 
+            var commandHandler = autoMocker.CreateInstance<AddBreadDoneCommandHandler>();
 
-            var commandHandler = new AddBreadDoneCommandHandler(breadDoneRepositoryMock.Object, userRepositoryMock.Object, recipeRepositoryMock.Object);
 
 
             // Assert

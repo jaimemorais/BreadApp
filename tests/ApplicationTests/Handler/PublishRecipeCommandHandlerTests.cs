@@ -33,7 +33,8 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeById(recipeId))
                 .Returns(new Recipe() { Id = recipeId, Name = "Test Recipe" });
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = autoMocker.CreateInstance<PublishRecipeCommandHandler>();
+
 
 
             // Assert
@@ -72,7 +73,7 @@ namespace ApplicationTests.Handler
                 .Setup(e => e.GetRecipeById(recipeId))
                 .Returns<Recipe>(null);
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = autoMocker.CreateInstance<PublishRecipeCommandHandler>();
 
 
             // Assert
@@ -114,7 +115,7 @@ namespace ApplicationTests.Handler
                 .Returns(new Recipe() { Id = recipeId, Name = "Test Recipe" });
 
 
-            var commandHandler = new PublishRecipeCommandHandler(userRepositoryMock.Object, recipeRepositoryMock.Object);
+            var commandHandler = autoMocker.CreateInstance<PublishRecipeCommandHandler>();
 
 
             // Assert
