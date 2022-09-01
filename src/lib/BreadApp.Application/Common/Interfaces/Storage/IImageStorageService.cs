@@ -1,9 +1,11 @@
-﻿namespace BreadApp.Application.Common.Interfaces.Storage
+﻿using System.Threading.Tasks;
+
+namespace BreadApp.Application.Common.Interfaces.Storage
 {
     public interface IImageStorageService
     {
 
-        string StoreImage(byte[] imageData);
+        Task<string> StoreImageAsync(string fileName, byte[] imageData);
 
     }
 }

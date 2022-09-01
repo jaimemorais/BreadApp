@@ -1,4 +1,5 @@
 ﻿using BreadApp.Application.Common.Interfaces.Persistence;
+using BreadApp.Application.Common.Interfaces.Storage;
 using BreadApp.Domain.Errors;
 using ErrorOr;
 using MediatR;
@@ -11,11 +12,13 @@ namespace BreadApp.Application.Recipe.Commands
     {
         private readonly IRecipeRepository _recipeRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IImageStorageService _imageStorageService;
 
-        public AddRecipeCommandHandler(IUserRepository userRepository, IRecipeRepository recipeRepository)
+        public AddRecipeCommandHandler(IUserRepository userRepository, IRecipeRepository recipeRepository, IImageStorageService imageStorageService)
         {
             _userRepository = userRepository;
             _recipeRepository = recipeRepository;
+            _imageStorageService = imageStorageService;
         }
 
         public async Task<ErrorOr<Domain.Entities.Recipe>> Handle(AddRecipeCommand addRecipeCommand, CancellationToken cancellationToken)
@@ -31,6 +34,10 @@ namespace BreadApp.Application.Recipe.Commands
             {
                 return UserDomainErrors.UserNotFound;
             }
+
+
+            // TODO upload image
+            // string imageBlobId = await _imageStorageService.StoreImage();
 
             recipe = new()
             {
