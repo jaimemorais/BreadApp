@@ -35,6 +35,9 @@ namespace BreadApp.Application.BreadDone.Commands
             }
 
 
+            // TODO upload image
+
+
             Domain.Entities.BreadDone breadDone = new()
             {
                 Date = addBreadDoneCommand.Date,
