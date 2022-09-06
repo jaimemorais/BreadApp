@@ -20,5 +20,7 @@ namespace BreadApp.Domain.Entities
         public List<string> Tags { get; set; }
 
         public bool IsPublished { get; set; }
+
+        public Guid ImageId { get; set; }
     }
 }

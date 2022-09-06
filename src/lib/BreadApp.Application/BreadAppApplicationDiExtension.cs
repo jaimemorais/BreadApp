@@ -18,7 +18,6 @@ namespace BreadApp.Application
             // Register MediatR pipeline behavior when executing a handler, to execute the Command/Query Validator if it exists
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(BreadAppValidationBehavior<,>));
 
-
             return services;
         }
     }

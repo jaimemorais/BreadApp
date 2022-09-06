@@ -1,11 +1,13 @@
 ﻿using BreadApp.Api.Contracts.Auth;
 using BreadApp.Api.Contracts.BreadDone;
+using BreadApp.Api.Contracts.Image;
 using BreadApp.Api.Contracts.Recipe;
 using BreadApp.Application.Auth;
 using BreadApp.Application.Auth.Commands;
 using BreadApp.Application.Auth.Queries;
 using BreadApp.Application.BreadDone.Commands;
 using BreadApp.Application.BreadDone.Queries;
+using BreadApp.Application.Image.Commands;
 using BreadApp.Application.Recipe.Commands;
 using BreadApp.Application.Recipe.Queries;
 using BreadApp.Domain.Entities;
@@ -32,11 +34,17 @@ namespace BreadApp.Api.Mapping
                 .Map(dest => dest.RecipeName, src => src.Recipe.Name);
 
 
-
             // Recipe
             config.NewConfig<AddRecipeRequest, AddRecipeCommand>();
             config.NewConfig<GetRecipeRequest, GetRecipeQuery>();
             config.NewConfig<PublishRecipeRequest, PublishRecipeCommand>();
+
+
+            // Image
+            config.NewConfig<UploadImageRequest, UploadImageCommand>()
+                .Map(dest => dest.ImageFile, src => src.ImageFile);
+
+
 
 
         }

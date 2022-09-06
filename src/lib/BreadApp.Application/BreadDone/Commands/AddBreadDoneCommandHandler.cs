@@ -1,5 +1,4 @@
 ﻿using BreadApp.Application.Common.Interfaces.Persistence;
-using BreadApp.Application.Common.Interfaces.Storage;
 using BreadApp.Domain.Errors;
 using ErrorOr;
 using MediatR;
@@ -13,15 +12,13 @@ namespace BreadApp.Application.BreadDone.Commands
         private readonly IBreadDoneRepository _breadDoneRepository;
         private readonly IUserRepository _userRepository;
         private readonly IRecipeRepository _recipeRepository;
-        private readonly IImageStorageService _imageStorageService;
 
         public AddBreadDoneCommandHandler(IBreadDoneRepository breadDoneRepository, IUserRepository userRepository,
-            IRecipeRepository recipeRepository, IImageStorageService imageStorageService)
+            IRecipeRepository recipeRepository)
         {
             _breadDoneRepository = breadDoneRepository;
             _userRepository = userRepository;
             _recipeRepository = recipeRepository;
-            _imageStorageService = imageStorageService;
         }
 
 
@@ -38,10 +35,6 @@ namespace BreadApp.Application.BreadDone.Commands
             {
                 return UserDomainErrors.UserNotFound;
             }
-
-
-            // TODO upload image
-            // string imageBlobId = await _imageStorageService.StoreImage();
 
             Domain.Entities.BreadDone breadDone = new()
             {
