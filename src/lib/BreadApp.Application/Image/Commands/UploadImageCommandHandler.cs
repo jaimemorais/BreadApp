@@ -1,5 +1,7 @@
 ﻿using BreadApp.Application.Common.Interfaces.Storage;
+using BreadApp.Domain.Errors;
 using ErrorOr;
+using Humanizer.Bytes;
 using MediatR;
 using System;
 using System.IO;
@@ -19,9 +21,14 @@ namespace BreadApp.Application.Image.Commands
         }
 
 
-        public async Task<ErrorOr<Domain.Entities.Image>> Handle(UploadImageCommand request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<Domain.Entities.Image>> Handle(UploadImageCommand uploadImageCommand, CancellationToken cancellationToken)
         {
-            using var imageStream = request.ImageFile.OpenReadStream();
+            if (ByteSize.FromBytes(uploadImageCommand.ImageFile.Length).Megabytes > 2)
+            {
+                return ImageDomainErrors.ImageBiggerThan2mb;
+            }
+
+            using var imageStream = uploadImageCommand.ImageFile.OpenReadStream();
             using var memoryStream = new MemoryStream();
             imageStream.CopyTo(memoryStream);
 
