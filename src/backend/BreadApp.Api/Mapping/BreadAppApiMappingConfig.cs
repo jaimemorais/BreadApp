@@ -41,12 +41,10 @@ namespace BreadApp.Api.Mapping
 
 
             // Image
-            config.NewConfig<UploadImageRequest, UploadImageCommand>()
-                .Map(dest => dest.ImageFile, src => src.ImageFile);
+            config.NewConfig<UploadImageRequest, UploadImageCommand>();
 
-
-
-
+            TypeAdapterConfig<IFormFile, IFormFile>.ForType()
+                .MapWith(src => src);
         }
     }
 }

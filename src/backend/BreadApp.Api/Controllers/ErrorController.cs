@@ -19,7 +19,7 @@ namespace BreadApp.Api.Controllers
         {
             Exception ex = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
 
-            _logger.LogCritical(ex, ex.Message);
+            _logger.LogCritical(ex, ex?.Message);
 
             return Problem();
         }
