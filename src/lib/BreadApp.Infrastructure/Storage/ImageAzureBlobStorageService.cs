@@ -28,6 +28,7 @@ namespace BreadApp.Infrastructure.Storage
 
             var blobName = Guid.NewGuid();
             BlobClient blob = container.GetBlobClient(blobName.ToString());
+
             await blob.UploadAsync(BinaryData.FromBytes(imageData), true);
 
             BlobProperties blobProperties = await blob.GetPropertiesAsync();

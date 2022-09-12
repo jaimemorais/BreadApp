@@ -5,8 +5,8 @@ namespace BreadApp.Domain.Base
 {
     public interface IDomainEvent : INotification
     {
-        Guid Id { get; }
+        Guid DomainEventId { get; }
 
-        DateTime EventDateTime { get; }
+        DateTime DomainEventDateTime { get; }
     }
 }

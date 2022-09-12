@@ -1,7 +1,9 @@
 ﻿using BreadApp.Application.Common.Interfaces.Auth;
+using BreadApp.Application.Common.Interfaces.Email;
 using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Application.Common.Interfaces.Storage;
 using BreadApp.Infrastructure.Auth;
+using BreadApp.Infrastructure.Email;
 using BreadApp.Infrastructure.Persistence.InMemory;
 using BreadApp.Infrastructure.Storage;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +25,8 @@ namespace BreadApp.Application
             services.AddScoped<IRecipeRepository, RecipeInMemoryRepository>();
 
             services.AddScoped<IImageStorageService, ImageAzureBlobStorageService>();
+
+            services.AddTransient<IEmailSenderService, SendgridMailService>();
 
 
             return services;
