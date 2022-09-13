@@ -5,7 +5,7 @@ using BreadApp.Application.Common.Interfaces.Persistence;
 using BreadApp.Application.Common.Interfaces.Storage;
 using BreadApp.Infrastructure.Auth;
 using BreadApp.Infrastructure.Email;
-using BreadApp.Infrastructure.Events;
+using BreadApp.Infrastructure.Messaging;
 using BreadApp.Infrastructure.Persistence.InMemory;
 using BreadApp.Infrastructure.Storage;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +29,7 @@ namespace BreadApp.Application
             services.AddTransient<IImageStorageService, ImageAzureBlobStorageService>();
 
             services.AddTransient<IEmailSenderService, SendgridMailService>();
-            services.AddTransient<IBreadAppEventNotificationService, BreadAppEventNotificationAzureEventGridService>();
+            services.AddTransient<IBreadAppEventNotificationService, BreadAppAzureEventGridService>();
 
             return services;
         }
