@@ -21,24 +21,30 @@ namespace BreadApp.Infrastructure.Messaging
         }
 
 
-        public async Task SendEventAsync(string context, object breadAppEventData)
+        public async Task SendEventAsync(string messagingContext, object breadAppEventData)
         {
-            (string topic, string topicKey) = GetContextConfig(context);
+            (string topic, string topicKey) = GetContextConfig(messagingContext);
 
             EventGridPublisherClient eventGridClient = new(new Uri(topic), new AzureKeyCredential(topicKey));
 
-            var cloudEvent = new CloudEvent(context, breadAppEventData.GetType().Name, breadAppEventData);
+            var cloudEvent = new CloudEvent(messagingContext, breadAppEventData.GetType().Name, breadAppEventData);
 
-            await eventGridClient.SendEventAsync(cloudEvent);
+            var response = await eventGridClient.SendEventAsync(cloudEvent);
+
+            if (response.IsError)
+            {
+                string httpError = response.ReasonPhrase;
+                // TODO failed event metric / log
+            }
 
         }
 
-        private (string Topic, string TopicKey) GetContextConfig(string context) => context switch
+        private (string Topic, string TopicKey) GetContextConfig(string messagingContext) => messagingContext switch
         {
             BreadAppMessagingContexts.NEW_USER_SEND_MAIL_CONTEXT =>
                 (_config["BreadApp:Azure:EventGrid:SendMailTopicEndpoint"], _config["BreadApp:Azure:EventGrid:SendMailTopicAccessKey"]),
 
-            _ => throw new BreadAppInfraException($"Context '{context}' keys not configured")
+            _ => throw new BreadAppInfraException($"Context '{messagingContext}' keys not configured")
         };
 
 

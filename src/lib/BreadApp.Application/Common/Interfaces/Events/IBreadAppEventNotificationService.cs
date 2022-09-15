@@ -4,6 +4,6 @@ namespace BreadApp.Application.Common.Interfaces.Events
 {
     public interface IBreadAppEventNotificationService
     {
-        Task SendEventAsync(string context, object breadAppEventData);
+        Task SendEventAsync(string messagingContext, object breadAppEventData);
     }
 }
