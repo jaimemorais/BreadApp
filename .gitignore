@@ -350,3 +350,6 @@ MigrationBackup/
 .ionide/
 /src/api/BreadApi/appsettings.Development.json
 /src/backend/BreadApp.Api/appsettings.Development.json
+/src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Zip Deploy/profile.arm.json
+/src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Zip Deploy/appInsights1.arm.json
+/src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Web Deploy/profile.arm.json
