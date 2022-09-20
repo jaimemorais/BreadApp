@@ -1,5 +1,6 @@
 using Azure.Messaging;
 using BreadApp.Application.Common.Interfaces.Email;
+using BreadApp.Domain.DomainEvents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
@@ -10,13 +11,24 @@ namespace BreadApp.Azure.Function.SendMail
     // Default URL for triggering event grid function in the local environment.
     // http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 
-    public static class BreadAppSendMailFunction
+    public class BreadAppSendMailFunction
     {
 
-        [FunctionName("BreadAppSendMailFunction")]
-        public static void Run([EventGridTrigger] CloudEvent e, ILogger log)
+        private readonly IEmailSenderService _emailSenderService;
+
+        public BreadAppSendMailFunction(IEmailSenderService emailSenderService)
         {
-            // TODO await _emailSenderService.SendMailAsync(notification.UserEmail, "Welcome to BreadApp!", $"Welcome to BreadApp {notification.UserEmail} !");
+            _emailSenderService = emailSenderService;
+        }
+
+
+        [FunctionName("BreadAppSendMailFunction")]
+        public async Task Run([EventGridTrigger] CloudEvent e, ILogger log)
+        {
+            NewUserRegisteredDomainEvent newUserRegisteredDomainEvent = e.Data.ToObjectFromJson<NewUserRegisteredDomainEvent>();
+
+            await _emailSenderService.SendMailAsync(newUserRegisteredDomainEvent.UserEmail,
+                "Welcome to BreadApp!", $"Welcome to BreadApp {newUserRegisteredDomainEvent.UserEmail} !");
 
             log.LogInformation(e.Data.ToString());
         }

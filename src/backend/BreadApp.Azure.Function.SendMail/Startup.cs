@@ -11,7 +11,7 @@ namespace BreadApp.Azure.Function.SendMail
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddScoped<IEmailSenderService, SendgridMailService>();
+            builder.Services.AddSingleton<IEmailSenderService, SendgridMailService>();
         }
     }
 }
