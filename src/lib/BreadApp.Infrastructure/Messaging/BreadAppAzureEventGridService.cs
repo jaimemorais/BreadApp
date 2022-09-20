@@ -42,7 +42,7 @@ namespace BreadApp.Infrastructure.Messaging
         private (string Topic, string TopicKey) GetContextConfig(string messagingContext) => messagingContext switch
         {
             BreadAppMessagingContexts.NEW_USER_SEND_MAIL_CONTEXT =>
-                (_config["BreadApp:Azure:EventGrid:SendMailTopicEndpoint"], _config["BreadApp:Azure:EventGrid:SendMailTopicAccessKey"]),
+                (_config["BreadApp_Azure_EventGrid_SendMailTopicEndpoint"], _config["BreadApp_Azure_EventGrid_SendMailTopicAccessKey"]),
 
             _ => throw new BreadAppInfraException($"Context '{messagingContext}' keys not configured")
         };
