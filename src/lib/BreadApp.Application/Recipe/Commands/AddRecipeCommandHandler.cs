@@ -35,10 +35,6 @@ namespace BreadApp.Application.Recipe.Commands
                 return UserDomainErrors.UserNotFound;
             }
 
-
-            // TODO upload image
-            // string imageBlobId = await _imageStorageService.StoreImage();
-
             recipe = new()
             {
                 User = user,
