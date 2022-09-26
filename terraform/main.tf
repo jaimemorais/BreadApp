@@ -3,6 +3,15 @@ provider "azurerm" {
  }
 }
 
+# tf init --backend-config=breadapp-azure-tf.backend
+# breadapp-azure-tf.backend keys :
+#resource_group_name  = ""
+#storage_account_name = ""
+#container_name       = ""
+#key                  = ""
+terraform {
+  backend "azurerm" {}
+}
 
 resource "azurerm_resource_group" "rg" {
     name = var.resource_group_name
