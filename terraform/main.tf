@@ -19,6 +19,8 @@ resource "azurerm_resource_group" "breadpp-tf-rg" {
     tags = var.breadapp_tags
 }
 
+
+# Storage
 resource "azurerm_storage_account" "breadpp-tf-storage" {
   name = var.breadapp_storage_account_name
   resource_group_name = var.breadapp_resource_group_name
@@ -34,6 +36,8 @@ resource "azurerm_storage_container" "breadapp-tf-blob-storage-pics" {
   container_access_type = "private"
 }
 
+
+# Event Grid
 resource "azurerm_eventgrid_topic" "breadpp-tf-eventgrid-sendmail-topic" {
   name                = var.breadapp_eventgrid_sendmail_topic
   location            = var.breadapp_location
@@ -41,3 +45,21 @@ resource "azurerm_eventgrid_topic" "breadpp-tf-eventgrid-sendmail-topic" {
   tags                = var.breadapp_tags
 }
 
+
+# Functions
+resource "azurerm_storage_account" "breadapp-tf-functions-storage" {
+  name                     = var.breadapp_functions_storage_account_name
+  resource_group_name      = var.breadapp_resource_group_name
+  location                 = var.breadapp_location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+resource "azurerm_app_service_plan" "breadapp-functions-app-service-plan" {
+  name                = var.breadapp_functions_appservice_plan_name
+  resource_group_name = var.breadapp_resource_group_name
+  location            = var.breadapp_location
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+}
