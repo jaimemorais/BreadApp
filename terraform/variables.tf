@@ -1,20 +1,26 @@
-variable "environment" {
+variable "breadapp_environment" {
   type = string
 }
 
-variable "resource_group_name" {
+variable "breadapp_location" {
   type = string
+  default = "eastus"
 }
 
-variable "storage_account_name" {
-  type = string
-}
-
-variable "location" {
-  type = string
-}
-
-variable "tags" {
+variable "breadapp_tags" {
   type = map(string)
 }
 
+variable "breadapp_resource_group_name" {
+  type = string
+}
+
+variable "breadapp_storage_account_name" {
+  type = string
+}
+variable "breadapp_storage_pics_blob_container_name" {
+  type = string
+}
+variable "breadapp_eventgrid_sendmail_topic" {
+  type = string
+}
