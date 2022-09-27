@@ -38,7 +38,7 @@ resource "azurerm_storage_container" "breadapp-tf-blob-storage-pics" {
 
 
 # Event Grid
-resource "azurerm_eventgrid_topic" "breadpp-tf-eventgrid-sendmail-topic" {
+resource "azurerm_eventgrid_topic" "breadapp-tf-eventgrid-sendmail-topic" {
   name                = var.breadapp_eventgrid_sendmail_topic
   location            = var.breadapp_location
   resource_group_name = var.breadapp_resource_group_name
@@ -62,4 +62,13 @@ resource "azurerm_app_service_plan" "breadapp-functions-app-service-plan" {
     tier = "Standard"
     size = "S1"
   }
+}
+
+resource "azurerm_function_app" "breadapp-tf-function-sendmail" {
+  name                       = var.breadapp_function_sendmail_name
+  location                   = var.breadapp_location
+  resource_group_name        = var.breadapp_resource_group_name
+  app_service_plan_id        = azurerm_app_service_plan.breadapp-functions-app-service-plan.id
+  storage_account_name       = var.breadapp_functions_storage_account_name
+  storage_account_access_key = azurerm_storage_account.breadapp-tf-functions-storage.primary_access_key
 }
