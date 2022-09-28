@@ -14,7 +14,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "breadpp-tf-rg" {
-    name = var.breadapp_resource_group_name
+    name = "${var.breadapp_project_name}-${var.breadapp_environment}-rg"
     location = var.breadapp_location
     tags = var.breadapp_tags
 }
@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "breadpp-tf-rg" {
 # Storage
 resource "azurerm_storage_account" "breadpp-tf-storage" {
   name = var.breadapp_storage_account_name
-  resource_group_name = var.breadapp_resource_group_name
+  resource_group_name = azurerm_resource_group.breadpp-tf-rg.name
   location = var.breadapp_location
   tags = var.breadapp_tags
   account_tier = "Standard"
@@ -32,7 +32,7 @@ resource "azurerm_storage_account" "breadpp-tf-storage" {
 
 resource "azurerm_storage_container" "breadapp-tf-blob-storage-pics" {
   name                  = var.breadapp_storage_pics_blob_container_name
-  storage_account_name  = var.breadapp_storage_account_name
+  storage_account_name  = azurerm_storage_account.breadpp-tf-storage.name
   container_access_type = "private"
 }
 
@@ -40,35 +40,20 @@ resource "azurerm_storage_container" "breadapp-tf-blob-storage-pics" {
 # Event Grid
 resource "azurerm_eventgrid_topic" "breadapp-tf-eventgrid-sendmail-topic" {
   name                = var.breadapp_eventgrid_sendmail_topic
+  resource_group_name = azurerm_resource_group.breadpp-tf-rg.name
   location            = var.breadapp_location
-  resource_group_name = var.breadapp_resource_group_name
   tags                = var.breadapp_tags
 }
 
 
 # Functions
-resource "azurerm_storage_account" "breadapp-tf-functions-storage" {
-  name                     = var.breadapp_functions_storage_account_name
-  resource_group_name      = var.breadapp_resource_group_name
-  location                 = var.breadapp_location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-resource "azurerm_app_service_plan" "breadapp-functions-app-service-plan" {
-  name                = var.breadapp_functions_appservice_plan_name
-  resource_group_name = var.breadapp_resource_group_name
-  location            = var.breadapp_location
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
-}
+module "breadapp-azure-function-sendmail" {
+  source = "./modules/breadapp-function"
 
-resource "azurerm_function_app" "breadapp-tf-function-sendmail" {
-  name                       = var.breadapp_function_sendmail_name
-  location                   = var.breadapp_location
-  resource_group_name        = var.breadapp_resource_group_name
-  app_service_plan_id        = azurerm_app_service_plan.breadapp-functions-app-service-plan.id
-  storage_account_name       = var.breadapp_functions_storage_account_name
-  storage_account_access_key = azurerm_storage_account.breadapp-tf-functions-storage.primary_access_key
+  breadapp_function_name = var.breadapp_function_sendmail_name
+
+  breadapp_function_rg = azurerm_resource_group.breadpp-tf-rg.name
+  breadapp_function_location = var.breadapp_location
+  breadapp_function_storage_account_name = var.breadapp_functions_storage_account_name
+  breadapp_function_appservice_plan_name = var.breadapp_functions_appservice_plan_name
 }

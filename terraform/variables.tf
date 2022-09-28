@@ -1,3 +1,8 @@
+variable "breadapp_project_name" {
+  type = string
+  default = "breadapp"
+}
+
 variable "breadapp_environment" {
   type = string
 }
@@ -9,10 +14,6 @@ variable "breadapp_location" {
 
 variable "breadapp_tags" {
   type = map(string)
-}
-
-variable "breadapp_resource_group_name" {
-  type = string
 }
 
 
