@@ -43,6 +43,7 @@ resource "azurerm_eventgrid_topic" "breadapp-tf-eventgrid-sendmail-topic" {
   resource_group_name = azurerm_resource_group.breadpp-tf-rg.name
   location            = var.breadapp_location
   tags                = var.breadapp_tags
+  input_schema        = "CloudEventSchemaV1_0"
 }
 
 
