@@ -57,3 +57,7 @@ module "breadapp-azure-function-sendmail" {
   breadapp_function_storage_account_name = var.breadapp_functions_storage_account_name
   breadapp_function_appservice_plan_name = var.breadapp_functions_appservice_plan_name
 }
+
+output "breadapp-resource-group-id" {
+  value = azurerm_resource_group.breadpp-tf-rg.id
+}
