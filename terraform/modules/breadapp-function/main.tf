@@ -21,10 +21,15 @@ resource "azurerm_linux_function_app" "breadapp-tf-function" {
   resource_group_name        = var.breadapp_function_rg
   location                   = var.breadapp_function_location
 
-  service_plan_id        = azurerm_service_plan.breadapp-tf-function-app-service-plan.id
+  service_plan_id            = azurerm_service_plan.breadapp-tf-function-app-service-plan.id
 
   storage_account_name       = var.breadapp_function_storage_account_name
   storage_account_access_key = azurerm_storage_account.breadapp-tf-function-storage.primary_access_key
 
-  site_config { }
+  site_config {
+    application_stack {
+      dotnet_version = "6.0"
+    }
+  }
+
 }
