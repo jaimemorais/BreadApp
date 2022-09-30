@@ -4,6 +4,6 @@ namespace BreadApp.Application.Common.Interfaces.Email
 {
     public interface IEmailSenderService
     {
-        Task SendMailAsync(string toEmail, string subject, string body);
+        Task SendMailAsync(string toEmail, string subject, string bodyPlainText = "", string bodyHtml = "");
     }
 }

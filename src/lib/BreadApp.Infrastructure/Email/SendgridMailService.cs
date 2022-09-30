@@ -19,14 +19,14 @@ namespace BreadApp.Infrastructure.Email
         }
 
 
-        public async Task SendMailAsync(string toEmail, string subject, string body)
+        public async Task SendMailAsync(string toEmail, string subject, string bodyPlainText = "", string bodyHtml = "")
         {
             string apiKey = _config["BreadApp_SendGrid_ApiKey"];
             var client = new SendGridClient(apiKey);
 
             var from = new EmailAddress("breadapp@breadapp.com", "Bread App");
             var to = new EmailAddress(toEmail);
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, subject, subject);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, bodyPlainText, bodyHtml);
 
             var response = await client.SendEmailAsync(msg);
 
