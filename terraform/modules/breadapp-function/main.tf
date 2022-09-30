@@ -12,7 +12,7 @@ resource "azurerm_service_plan" "breadapp-tf-function-app-service-plan" {
   resource_group_name = var.breadapp_function_rg
   location            = var.breadapp_function_location
   os_type             = "Linux"
-  sku_name            = "B1"
+  sku_name            = var.breadapp_function_appservice_plan_name_sku
 }
 
 
@@ -30,6 +30,12 @@ resource "azurerm_linux_function_app" "breadapp-tf-function" {
     application_stack {
       dotnet_version = "6.0"
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+       app_settings
+    ]
   }
 
 }
