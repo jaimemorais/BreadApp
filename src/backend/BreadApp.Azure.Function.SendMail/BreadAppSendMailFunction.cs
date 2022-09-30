@@ -27,10 +27,11 @@ namespace BreadApp.Azure.Function.SendMail
         {
             NewUserRegisteredDomainEvent newUserRegisteredDomainEvent = e.Data.ToObjectFromJson<NewUserRegisteredDomainEvent>();
 
-            await _emailSenderService.SendMailAsync(newUserRegisteredDomainEvent.UserEmail,
-                "Welcome to BreadApp!", $"Welcome to BreadApp {newUserRegisteredDomainEvent.UserEmail} !");
 
-            log.LogInformation(e.Data.ToString());
+            await _emailSenderService.SendMailAsync(newUserRegisteredDomainEvent.UserEmail,
+                "Welcome to BreadApp!", $"Welcome to BreadApp {newUserRegisteredDomainEvent.UserName} !");
+
+            log.LogInformation("Email sent. Data : " + e.Data.ToString());
         }
     }
 }

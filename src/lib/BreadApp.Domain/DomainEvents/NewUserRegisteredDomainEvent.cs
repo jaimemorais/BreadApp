@@ -3,7 +3,7 @@ using System;
 
 namespace BreadApp.Domain.DomainEvents
 {
-    public sealed record NewUserRegisteredDomainEvent(Guid UserId, string UserEmail) : IDomainEvent
+    public sealed record NewUserRegisteredDomainEvent(Guid UserId, string UserName, string UserEmail) : IDomainEvent
     {
         public Guid DomainEventId => Guid.NewGuid();
 

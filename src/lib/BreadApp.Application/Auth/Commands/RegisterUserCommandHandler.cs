@@ -42,7 +42,7 @@ namespace BreadApp.Application.Auth.Commands
 
             string token = _jwtTokenGenerator.GenerateToken(newUser);
 
-            await _mediator.Publish(new NewUserRegisteredDomainEvent(newUser.Id, newUser.Email));
+            await _mediator.Publish(new NewUserRegisteredDomainEvent(newUser.Id, newUser.Name, newUser.Email));
 
             return new AuthResult(newUser, token);
 
