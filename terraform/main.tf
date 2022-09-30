@@ -57,6 +57,7 @@ module "breadapp-azure-function-sendmail" {
   breadapp_function_location = var.breadapp_location
   breadapp_function_storage_account_name = var.breadapp_functions_storage_account_name
   breadapp_function_appservice_plan_name = var.breadapp_functions_appservice_plan_name
+  breadapp_function_appservice_plan_name_sku = "B1"
 }
 
 output "breadapp-resource-group-id" {
