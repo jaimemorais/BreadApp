@@ -30,6 +30,18 @@ variable "breadapp_eventgrid_sendmail_topic" {
 }
 
 
+
+
+variable "breadapp_loganalytics_workspace_name" {
+  type = string
+}
+
+variable "breadapp_application_insights_name" {
+  type = string
+}
+
+
+
 variable "breadapp_functions_storage_account_name" {
   type = string
 }

@@ -30,6 +30,10 @@ resource "azurerm_linux_function_app" "breadapp-tf-function" {
     application_stack {
       dotnet_version = "6.0"
     }
+    app_service_logs {
+      disk_quota_mb         = 35
+      retention_period_days = 60
+    }
   }
 
   lifecycle {

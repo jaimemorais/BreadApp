@@ -47,6 +47,22 @@ resource "azurerm_eventgrid_topic" "breadapp-tf-eventgrid-sendmail-topic" {
 }
 
 
+# Application Insights / Log Analytics
+
+module "breadapp-azure-logs-application-insights" {
+  source = "./modules/breadapp-logs-application-insights"
+
+  breadapp_application_insights_name = var.breadapp_application_insights_name
+  breadapp_loganalytics_workspace_name = var.breadapp_loganalytics_workspace_name
+
+  breadapp_logs_appinsights_rg = azurerm_resource_group.breadpp-tf-rg.name
+  breadapp_logs_appinsights_location = var.breadapp_location
+  breadapp_logs_appinsights_tags = var.breadapp_tags
+}
+
+
+
+
 # Functions
 module "breadapp-azure-function-sendmail" {
   source = "./modules/breadapp-function"
