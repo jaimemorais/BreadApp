@@ -22,6 +22,7 @@ namespace BreadApp.Domain.Base
 
 
 
+
         public override int GetHashCode()
         {
             return (GetType().ToString() + Id).GetHashCode();
