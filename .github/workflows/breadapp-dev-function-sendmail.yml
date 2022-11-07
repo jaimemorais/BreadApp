@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Function App breadapp-dev-function-sendmail
+name: Build/Publish breadapp-dev-function-sendmail
 on:
   push:
     branches:
