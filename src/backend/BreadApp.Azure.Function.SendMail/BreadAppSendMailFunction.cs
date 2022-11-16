@@ -1,10 +1,8 @@
 using Azure.Messaging;
 using BreadApp.Application.Common.Interfaces.Email;
 using BreadApp.Domain.DomainEvents;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 
 namespace BreadApp.Azure.Function.SendMail
 {
@@ -25,7 +23,8 @@ namespace BreadApp.Azure.Function.SendMail
         }
 
 
-        [FunctionName("BreadAppSendMailFunction")]
+
+        [Function("BreadAppSendMailFunction")]
         public async Task Run([EventGridTrigger] CloudEvent e)
         {
             NewUserRegisteredDomainEvent newUserRegisteredDomainEvent = e.Data.ToObjectFromJson<NewUserRegisteredDomainEvent>();
