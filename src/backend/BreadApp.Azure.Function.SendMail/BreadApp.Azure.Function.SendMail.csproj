@@ -12,7 +12,6 @@
 	<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" Version="1.1.0" />        
 	<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.EventGrid" Version="3.2.1" />
 	<PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.2.1" />    
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\BreadApp.Application\BreadApp.Application.csproj" />
