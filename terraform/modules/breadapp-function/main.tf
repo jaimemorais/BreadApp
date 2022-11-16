@@ -28,7 +28,8 @@ resource "azurerm_linux_function_app" "breadapp-tf-function" {
 
   site_config {
     application_stack {
-      dotnet_version = "6.0"
+      dotnet_version = "7.0"
+      use_dotnet_isolated_runtime = true
     }
     app_service_logs {
       disk_quota_mb         = 35

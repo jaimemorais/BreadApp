@@ -44,12 +44,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTests", "tests\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreadApp.Azure.Function.SendMail", "src\backend\BreadApp.Azure.Function.SendMail\BreadApp.Azure.Function.SendMail.csproj", "{E3B905E3-976D-49A4-9D5A-029CB54855E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "terraform", "terraform", "{C43F7BA5-15F8-4918-B9C6-689EDDD65A01}"
-	ProjectSection(SolutionItems) = preProject
-		terraform\main.tf = terraform\main.tf
-		terraform\variables.tf = terraform\variables.tf
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github-workflows", "github-workflows", "{055012B9-BE42-4B00-818D-7A9D5B9F6553}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\breadapp-dev-function-sendmail.yml = .github\workflows\breadapp-dev-function-sendmail.yml
@@ -119,7 +113,6 @@ Global
 		{FB24540E-9A26-44C6-BCA3-8873D32B1D75} = {B2D422DB-5AFB-43DC-82E3-B134EC9EEB71}
 		{7A2CF034-F894-40D7-80DB-E51E60958623} = {BD171CBE-C465-4F57-B6B1-8636B6A78E35}
 		{E3B905E3-976D-49A4-9D5A-029CB54855E2} = {B2D422DB-5AFB-43DC-82E3-B134EC9EEB71}
-		{C43F7BA5-15F8-4918-B9C6-689EDDD65A01} = {317FAAD9-F8C6-4B7D-B1A8-803D8C6114C1}
 		{055012B9-BE42-4B00-818D-7A9D5B9F6553} = {317FAAD9-F8C6-4B7D-B1A8-803D8C6114C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
