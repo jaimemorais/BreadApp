@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "BreadApp.Azure.Function.SendMail": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7036 --verbose",
+      "launchBrowser": false
+    }
+  }
+}
