@@ -2,7 +2,7 @@
 
 A Bread baking journal.
 
-- .NET 6 API (full and minimal)
+- .NET 7 API (full and minimal)
 - .NET MAUI
 - Blazor
 - Azure
@@ -14,7 +14,7 @@ Design
 
 - Frontends : MAUI App, Blazor Web App
 
-- Backend : .NET 6 API 
+- Backend : .NET 7 API 
 
 DDD and Clean Architecture principles and patterns (CQRS, Event Sourcing, Mediator)
 
