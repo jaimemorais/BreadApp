@@ -12,27 +12,30 @@ namespace BreadApp.Azure.Function.SendMail
     public class BreadAppSendMailFunction
     {
         private readonly ILogger _logger;
-
         private readonly IEmailSenderService _emailSenderService;
 
-        public BreadAppSendMailFunction(IEmailSenderService emailSenderService, ILoggerFactory loggerFactory)
+        public BreadAppSendMailFunction(ILoggerFactory loggerFactory, IEmailSenderService emailSenderService)
         {
-            _emailSenderService = emailSenderService;
             _logger = loggerFactory.CreateLogger<BreadAppSendMailFunction>();
-
+            _emailSenderService = emailSenderService;
         }
 
-
-
         [Function("BreadAppSendMailFunction")]
-        public async Task Run([EventGridTrigger] CloudEvent e)
+        public async Task Run([EventGridTrigger] CloudEvent input)
         {
-            NewUserRegisteredDomainEvent newUserRegisteredDomainEvent = e.Data.ToObjectFromJson<NewUserRegisteredDomainEvent>();
+            NewUserRegisteredDomainEvent? newUserRegisteredDomainEvent = input?.Data?.ToObjectFromJson<NewUserRegisteredDomainEvent>();
+
+            if (newUserRegisteredDomainEvent == null)
+            {
+                _logger.LogError("newUserRegisteredDomainEvent is null");
+                return;
+            }
 
             await _emailSenderService.SendMailAsync(newUserRegisteredDomainEvent.UserEmail,
                 "Welcome to BreadApp!", $"Welcome to BreadApp {newUserRegisteredDomainEvent.UserName} !");
 
-            _logger.LogInformation("Email sent. Data : " + e.Data.ToString());
+            _logger.LogInformation($"Email sent. Data : {input?.Data}");
         }
     }
+
 }

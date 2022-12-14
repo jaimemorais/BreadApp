@@ -17,10 +17,10 @@ namespace BreadApp.Application
     {
         public static IServiceCollection AddBreadAppInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+            services.Configure<BreadAppJwtSettings>(configuration.GetSection("BreadAppJwtSettings"));
 
 
-            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddSingleton<IJwtTokenGenerator, BreadAppJwtTokenGenerator>();
 
             services.AddScoped<IUserRepository, UserInMemoryRepository>();
             services.AddScoped<IBreadDoneRepository, BreadDoneInMemoryRepository>();

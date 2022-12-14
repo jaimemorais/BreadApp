@@ -1,6 +1,6 @@
 ﻿namespace BreadApp.Infrastructure.Auth
 {
-    public class JwtSettings
+    public class BreadAppJwtSettings
     {
         public string Issuer { get; init; }
         public string Audience { get; init; }

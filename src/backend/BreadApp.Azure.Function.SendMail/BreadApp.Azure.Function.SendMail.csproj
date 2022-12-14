@@ -1,21 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	  <TargetFramework>net7.0</TargetFramework>
-	  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-	  <OutputType>Exe</OutputType>
-	  <ImplicitUsings>enable</ImplicitUsings>
-	  <Nullable>enable</Nullable>
+    <TargetFramework>net7.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>        
-	<PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />        
-	<PackageReference Include="Microsoft.Azure.Functions.Worker.Core" Version="1.8.0" />        
-	<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" Version="1.1.0" />        
-	<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.EventGrid" Version="3.2.1" />
-	<PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Core" Version="1.8.0" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" Version="1.1.0" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.EventGrid" Version="3.2.1" />
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\BreadApp.Application\BreadApp.Application.csproj" />
-    <ProjectReference Include="..\..\lib\BreadApp.Infrastructure\BreadApp.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -27,6 +26,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-	<Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
+    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
   </ItemGroup>
 </Project>

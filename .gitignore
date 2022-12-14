@@ -399,3 +399,5 @@ terraform/*.backend
 /src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Zip Deploy/profile.arm.json
 /src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Zip Deploy/appInsights1.arm.json
 /src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-function-sendmail - Web Deploy/profile.arm.json
+/src/backend/BreadApp.Azure.Function.SendMail/Properties/ServiceDependencies/breadapp-dev-function-sendmail - Zip Deploy
+/src/backend/BreadApp.Azure.Function.SendMail/Properties/serviceDependencies.breadapp-dev-function-sendmail - Zip Deploy.json

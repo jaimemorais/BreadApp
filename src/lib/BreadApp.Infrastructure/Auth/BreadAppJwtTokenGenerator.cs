@@ -1,19 +1,19 @@
-﻿using BreadApp.Application.Common.Interfaces.Auth;
-using BreadApp.Domain.Entities;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using BreadApp.Application.Common.Interfaces.Auth;
+using BreadApp.Domain.Entities;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BreadApp.Infrastructure.Auth
 {
-    public class JwtTokenGenerator : IJwtTokenGenerator
+    public class BreadAppJwtTokenGenerator : IJwtTokenGenerator
     {
-        private readonly JwtSettings _jwtSettings;
+        private readonly BreadAppJwtSettings _jwtSettings;
 
-        public JwtTokenGenerator(IOptions<JwtSettings> jwtSettingsOptions)
+        public BreadAppJwtTokenGenerator(IOptions<BreadAppJwtSettings> jwtSettingsOptions)
         {
             _jwtSettings = jwtSettingsOptions.Value;
         }
